@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A12C654424922A1300C3FFAD /* LineSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C654324922A1300C3FFAD /* LineSearchViewController.swift */; };
 		A17627E82491F576001FC1EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627E72491F576001FC1EC /* AppDelegate.swift */; };
 		A17627EA2491F576001FC1EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627E92491F576001FC1EC /* SceneDelegate.swift */; };
 		A17627EC2491F576001FC1EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627EB2491F576001FC1EC /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A12C654324922A1300C3FFAD /* LineSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSearchViewController.swift; sourceTree = "<group>"; };
 		A17627E42491F576001FC1EC /* SGPBicycleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGPBicycleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17627E72491F576001FC1EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17627E92491F576001FC1EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				A17627F02491F577001FC1EC /* Assets.xcassets */,
 				A17627F22491F577001FC1EC /* LaunchScreen.storyboard */,
 				A17627F52491F577001FC1EC /* Info.plist */,
+				A12C654324922A1300C3FFAD /* LineSearchViewController.swift */,
 			);
 			path = SGPBicycleApp;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				A17627EC2491F576001FC1EC /* ViewController.swift in Sources */,
 				A17627E82491F576001FC1EC /* AppDelegate.swift in Sources */,
+				A12C654424922A1300C3FFAD /* LineSearchViewController.swift in Sources */,
 				A17627EA2491F576001FC1EC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

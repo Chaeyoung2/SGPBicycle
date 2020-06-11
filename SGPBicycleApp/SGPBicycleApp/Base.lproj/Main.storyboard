@@ -1,16 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7wN-UC-uas">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--역명으로검색-->
+        <scene sceneID="43P-3h-W4K">
+            <objects>
+                <navigationController id="arV-xY-2tU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="역명으로검색" id="ggk-SA-Ic1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YTm-Rp-any">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CbG-Fy-zBl" kind="relationship" relationship="rootViewController" id="Sig-6x-R0D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pjd-93-aIC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-184" y="-163"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jcJ-xC-wFT">
+            <objects>
+                <viewController id="CbG-Fy-zBl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NEL-09-wz7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="VGH-3d-Sqa">
+                                <rect key="frame" x="0.0" y="268" width="414" height="487"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="8bW-4z-RdU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rK0-dh-kWX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOc-1e-0xD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="678.26086956521749" y="-162.05357142857142"/>
+        </scene>
         <!--호선으로검색-->
+        <scene sceneID="Co9-w4-VSw">
+            <objects>
+                <navigationController id="GHW-w6-qj7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="호선으로검색" id="gMM-EX-Yu6"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wkV-qk-9rz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PCu-5L-lrF" kind="relationship" relationship="rootViewController" id="n2n-tV-4mG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UvU-de-2tJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-184" y="494"/>
+        </scene>
+        <!--Line Search View Controller-->
         <scene sceneID="euf-SW-yrx">
             <objects>
-                <viewController id="PCu-5L-lrF" sceneMemberID="viewController">
+                <viewController id="PCu-5L-lrF" customClass="LineSearchViewController" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aBe-Ib-uT9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,11 +75,17 @@
                                 <rect key="frame" x="53" y="659" width="100" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="음성인식시작"/>
+                                <connections>
+                                    <action selector="startTranscribe:" destination="PCu-5L-lrF" eventType="touchUpInside" id="DgS-5d-mRz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-vg-ntd">
                                 <rect key="frame" x="234" y="659" width="100" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="음성인식"/>
+                                <connections>
+                                    <action selector="stopTranscribe:" destination="PCu-5L-lrF" eventType="touchUpInside" id="DJ5-lN-KsV"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="음성 인식을 원하실 경우                           버튼을 눌러 음성을 인식 해주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WRI-JF-YED">
                                 <rect key="frame" x="94" y="507" width="240" height="128"/>
@@ -41,33 +103,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="4g4-wD-8Qi"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="호선으로검색" id="kTW-DZ-jLx"/>
+                    <navigationItem key="navigationItem" id="Dey-gv-hAJ"/>
+                    <connections>
+                        <outlet property="myTextView" destination="WRI-JF-YED" id="Pcx-V4-ee4"/>
+                        <outlet property="stopbutton" destination="XZ4-vg-ntd" id="Zrx-Jv-gcw"/>
+                        <outlet property="transcribebutton" destination="Pu8-ba-zbe" id="Dex-91-usR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cl7-j0-X5j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-18.840579710144929" y="547.76785714285711"/>
-        </scene>
-        <!--지하철역명검색-->
-        <scene sceneID="Qg1-kC-6Px">
-            <objects>
-                <viewController id="SRO-J3-azE" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HYb-SF-qr9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="c6b-gT-0te">
-                                <rect key="frame" x="0.0" y="152" width="414" height="661"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="njg-L4-quB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="지하철역명검색" id="HKo-wq-39Z"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ctG-O0-hPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-18.840579710144929" y="-100.44642857142857"/>
+            <point key="canvasLocation" x="716" y="494"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PBi-qB-NzE">
@@ -79,8 +124,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="SRO-J3-azE" kind="relationship" relationship="viewControllers" id="QQs-xm-Dzx"/>
-                        <segue destination="PCu-5L-lrF" kind="relationship" relationship="viewControllers" id="wA6-Vp-hwk"/>
+                        <segue destination="arV-xY-2tU" kind="relationship" relationship="viewControllers" id="Nol-S7-Hqv"/>
+                        <segue destination="GHW-w6-qj7" kind="relationship" relationship="viewControllers" id="TK9-bS-bJW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7r-T1-R8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
