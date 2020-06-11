@@ -111,6 +111,8 @@ class namesearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         for num in 0...stations[clb].count-1{
             if( trim == stations[clb][num].name){
             self.pickerview2.selectRow(num, inComponent: 0, animated: true)
+                FindName = trim
+                print(FindName)
                       }
     }
     }
@@ -131,7 +133,11 @@ class namesearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerDataSource.count
       }
-      
+      func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+          //피커뷰의 로우가 row == 1 일때 어떤건지 알려주기
+        FindName = pickerDataSource[row].name
+        print(FindName)
+      }
     
 
     override func viewDidLoad() {
