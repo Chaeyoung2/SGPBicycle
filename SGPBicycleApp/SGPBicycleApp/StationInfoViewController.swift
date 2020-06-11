@@ -40,7 +40,8 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     // parser 오브젝트 초기화하고 XMLParserDelegate로 설정하고 XML 파싱 시작
     func beginParsing(){
         posts = []
-        parser = XMLParser(contentsOf: (URL(string:"http://openapi.tago.go.kr/openapi/service/SubwayInfoService/getKwrdFndSubwaySttnList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D"))!)!
+      
+        parser = XMLParser(contentsOf: (URL(string:"http://openapi.tago.go.kr/openapi/service/SubwayInfoService/getKwrdFndSubwaySttnList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D&subwayStationName="))!)!
         parser.delegate = self
         parser.parse()
         //tbData!.reloadData()
