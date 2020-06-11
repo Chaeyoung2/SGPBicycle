@@ -116,11 +116,6 @@ class namesearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                       }
     }
     }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        //피커뷰의 로우가 row == 1 일때 어떤건지 알려주기
-        
-        FindName = stations[clb][row].name
-    }
     //MARK: - 호선 별로보이는
     var pickerDataSource = stations[clb]
     //,"5호선","6호선","7호선","8호선","9호선"
