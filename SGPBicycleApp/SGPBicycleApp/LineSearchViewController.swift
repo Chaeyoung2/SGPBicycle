@@ -1,7 +1,11 @@
 import UIKit
 import Speech
+
 var lineNumber : String = "일호선"
 class LineSearchViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+    
+    var stations = [Station]()
+    
     //MARK: - 권한가져오기
     func authorizeSR() {
           SFSpeechRecognizer.requestAuthorization { authStatus in
@@ -148,6 +152,89 @@ class LineSearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         self.pickerView.delegate = self;
         self.pickerView.dataSource = self;
         // Do any additional setup after loading the view.
+        
+        loadStations()
+    }
+    
+    func loadStations(){
+        stations = [
+            Station(category: "1호선", name: "소요산"),
+            Station(category: "1호선", name: "동두천"),
+            Station(category: "1호선", name: "보산"),
+            Station(category: "1호선", name: "동두천중앙"),
+            Station(category: "1호선", name: "지행"),
+            Station(category: "1호선", name: "덕정"),
+            Station(category: "1호선", name: "덕계"),
+            Station(category: "1호선", name: "양주"),
+            Station(category: "1호선", name: "녹양"),
+            Station(category: "1호선", name: "가능"),
+            Station(category: "1호선", name: "의정부"),
+            Station(category: "1호선", name: "회룡"),
+            Station(category: "1호선", name: "망월사"),
+            Station(category: "1호선", name: "도봉산"),
+            Station(category: "1호선", name: "도봉"),
+            Station(category: "1호선", name: "방학"),
+            Station(category: "1호선", name: "창동"),
+            Station(category: "1호선", name: "녹천"),
+            Station(category: "1호선", name: "월계"),
+            Station(category: "1호선", name: "광운대"),
+            Station(category: "1호선", name: "석계"),
+            Station(category: "1호선", name: "신이문"),
+            Station(category: "1호선", name: "외대앞"),
+            Station(category: "1호선", name: "회기"),
+            Station(category: "1호선", name: "청량리"),
+            Station(category: "1호선", name: "제기동"),
+            Station(category: "1호선", name: "신설동"),
+            Station(category: "1호선", name: "동묘앞"),
+            Station(category: "1호선", name: "동대문"),
+            Station(category: "1호선", name: "종로5가"),
+            Station(category: "1호선", name: "종로3가"),
+            Station(category: "1호선", name: "종각"),
+            Station(category: "1호선", name: "시청"),
+            Station(category: "1호선", name: "서울역"),
+            Station(category: "1호선", name: "남영"),
+            Station(category: "1호선", name: "용산"),
+            Station(category: "1호선", name: "노량진"),
+            Station(category: "1호선", name: "대방"),
+            Station(category: "1호선", name: "신길"),
+            Station(category: "1호선", name: "영등포"),
+            Station(category: "1호선", name: "신도림"),
+            Station(category: "1호선", name: "구로"),
+            
+            Station(category: "1호선", name: "가산디지털단지"),
+            Station(category: "1호선", name: "독산"),
+            Station(category: "1호선", name: "금천구청"),
+            Station(category: "1호선", name: "석수"),
+            Station(category: "1호선", name: "관악"),
+            Station(category: "1호선", name: "안양"),
+            Station(category: "1호선", name: "명학"),
+            Station(category: "1호선", name: "금정"),
+            Station(category: "1호선", name: "군포"),
+            Station(category: "1호선", name: "당정"),
+            Station(category: "1호선", name: "의왕"),
+            Station(category: "1호선", name: "성균관대"),
+            Station(category: "1호선", name: "화서"),
+            Station(category: "1호선", name: "수원"),
+            Station(category: "1호선", name: "세류"),
+            Station(category: "1호선", name: "병점"),
+            Station(category: "1호선", name: "세마"),
+            Station(category: "1호선", name: "오산대"),
+            Station(category: "1호선", name: "오산"),
+            Station(category: "1호선", name: "송탄"),
+            Station(category: "1호선", name: "서정리"),
+            Station(category: "1호선", name: "지제"),
+            Station(category: "1호선", name: "평택"),
+            
+            Station(category: "1호선", name: "구일"),
+            Station(category: "1호선", name: "개봉"),
+            Station(category: "1호선", name: "오류동"),
+            Station(category: "1호선", name: "온수"),
+            Station(category: "1호선", name: "역곡"),
+            Station(category: "1호선", name: "소사"),
+            Station(category: "1호선", name: "부천"),
+            Station(category: "1호선", name: "중동"),
+            Station(category: "1호선", name: "송내"),
+        ]
     }
     
 
