@@ -100,25 +100,35 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     }
     cell.textLabel!.text = station.name
     cell.detailTextLabel!.text = station.category
+    
+    
     return cell
   }
   
   // MARK: - Segues
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    print(segue.identifier)
     if segue.identifier == "showDetail" {
       if let indexPath = tableView.indexPathForSelectedRow {
         let station: Station
         if isFiltering() {
           station = filteredStations[indexPath.row]
+
         } else {
           station = stations[indexPath.row]
+           
         }
         let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
         controller.detailStation = station
         controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         controller.navigationItem.leftItemsSupplementBackButton = true
+        FindName = station.name
+        
+        print(FindName)
       }
     }
+    
+    
     }
     
     // MARK: - Private instance methods
@@ -376,6 +386,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
               
 
     }
+    
     }
 
 extension MasterViewController: UISearchBarDelegate {
