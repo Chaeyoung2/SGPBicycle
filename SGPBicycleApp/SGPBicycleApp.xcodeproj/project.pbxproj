@@ -32,7 +32,7 @@
 		A17628542492624A001FC1EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17628532492624A001FC1EC /* AppDelegate.swift */; };
 		A17DE13C2492536300B85E20 /* namesearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE13B2492536300B85E20 /* namesearchViewController.swift */; };
 		A17DE13E2492590500B85E20 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE13D2492590500B85E20 /* config.swift */; };
-		A17DE14024925DB200B85E20 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE13F24925DB200B85E20 /* Station.swift */; };
+		A1CDA71224928DD600E3E23F /* img_subway.png in Resources */ = {isa = PBXBuildFile; fileRef = A1CDA71124928DD600E3E23F /* img_subway.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +84,7 @@
 		A17628532492624A001FC1EC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17DE13B2492536300B85E20 /* namesearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = namesearchViewController.swift; sourceTree = "<group>"; };
 		A17DE13D2492590500B85E20 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
-		A17DE13F24925DB200B85E20 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		A1CDA71124928DD600E3E23F /* img_subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_subway.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +135,7 @@
 		A17627E62491F576001FC1EC /* SGPBicycleApp */ = {
 			isa = PBXGroup;
 			children = (
+				A1CDA71124928DD600E3E23F /* img_subway.png */,
 				A17628532492624A001FC1EC /* AppDelegate.swift */,
 				A176284B24925FD5001FC1EC /* DetailViewController.swift */,
 				A176284C24925FD5001FC1EC /* MasterViewController.swift */,
@@ -286,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A176283D249246E2001FC1EC /* line4.png in Resources */,
+				A1CDA71224928DD600E3E23F /* img_subway.png in Resources */,
 				A17627F42491F577001FC1EC /* LaunchScreen.storyboard in Resources */,
 				A176283F249246E2001FC1EC /* line8.png in Resources */,
 				A176283A249246E2001FC1EC /* line5.png in Resources */,
