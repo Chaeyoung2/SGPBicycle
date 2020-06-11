@@ -107,6 +107,7 @@ class LineSearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     
 //MARK: - 호선 별로보이는
       var pickerDataSource = ["1호선","2호선","3호선","4호선","5호선","6호선","7호선","8호선","9호선"]
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row : Int , forComponent component : Int)->String?{
         return pickerDataSource[row]
     }
@@ -121,9 +122,13 @@ class LineSearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         //피커뷰의 로우가 row == 1 일때 어떤건지 알려주기
     }
     override func viewDidLoad() {
-        authorizeSR()
+        
         super.viewDidLoad()
+        
+        self.pickerView.delegate = self;
+        self.pickerView.dataSource = self;
 
+        authorizeSR()
         // Do any additional setup after loading the view.
     }
 }

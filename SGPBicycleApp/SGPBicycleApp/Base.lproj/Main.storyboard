@@ -44,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOc-1e-0xD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678.26086956521749" y="-162.05357142857142"/>
+            <point key="canvasLocation" x="587" y="-163"/>
         </scene>
         <!--Station Info View Controller-->
         <scene sceneID="fed-Ir-qVj">
@@ -106,7 +106,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvU-de-2tJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-184" y="494"/>
+            <point key="canvasLocation" x="-138" y="532"/>
         </scene>
         <!--Line Search View Controller-->
         <scene sceneID="euf-SW-yrx">
@@ -151,13 +151,14 @@
                     <navigationItem key="navigationItem" id="Dey-gv-hAJ"/>
                     <connections>
                         <outlet property="myTextView" destination="WRI-JF-YED" id="Pcx-V4-ee4"/>
+                        <outlet property="pickerView" destination="xuv-Lr-c6h" id="KKF-Fy-YWb"/>
                         <outlet property="stopbutton" destination="XZ4-vg-ntd" id="Zrx-Jv-gcw"/>
                         <outlet property="transcribebutton" destination="Pu8-ba-zbe" id="Dex-91-usR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cl7-j0-X5j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676.81159420289862" y="532.36607142857144"/>
+            <point key="canvasLocation" x="535" y="532"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PBi-qB-NzE">
@@ -193,7 +194,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pf4-TB-DG0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1894.2028985507247" y="190.84821428571428"/>
+            <point key="canvasLocation" x="2141" y="191"/>
         </scene>
     </scenes>
     <resources>
