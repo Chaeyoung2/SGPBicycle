@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTr-z1-U6l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3313" y="256"/>
+            <point key="canvasLocation" x="3445" y="224"/>
         </scene>
         <!--호선으로검색-->
         <scene sceneID="Co9-w4-VSw">
@@ -134,19 +134,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-vg-ntd">
                                 <rect key="frame" x="234" y="659" width="100" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="음성인식"/>
+                                <state key="normal" title="음성인식중단"/>
                                 <connections>
                                     <action selector="stopTranscribe:" destination="PCu-5L-lrF" eventType="touchUpInside" id="DJ5-lN-KsV"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="음성 인식을 원하실 경우                           버튼을 눌러 음성을 인식 해주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WRI-JF-YED">
-                                <rect key="frame" x="94" y="507" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xuv-Lr-c6h">
                                 <rect key="frame" x="20" y="204" width="374" height="295"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -159,11 +151,25 @@
                                     <action selector="startTranscribe:" destination="PCu-5L-lrF" eventType="touchUpInside" id="DgS-5d-mRz"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="음성 인식을 원하실 경우                           버튼을 눌러 음성을 인식 해주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WRI-JF-YED">
+                                <rect key="frame" x="94" y="523" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="4g4-wD-8Qi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Dey-gv-hAJ"/>
+                    <navigationItem key="navigationItem" id="Dey-gv-hAJ">
+                        <barButtonItem key="rightBarButtonItem" title="검색" id="Xs8-NL-Ak9">
+                            <connections>
+                                <segue destination="fMt-cB-IUy" kind="show" id="HZT-sV-h3g"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myTextView" destination="WRI-JF-YED" id="Pcx-V4-ee4"/>
                         <outlet property="pickerView" destination="xuv-Lr-c6h" id="KKF-Fy-YWb"/>
@@ -174,6 +180,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cl7-j0-X5j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="535" y="532"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bAX-sx-Wki">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5w4-SZ-s1t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="fMt-cB-IUy" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bDy-d6-WeI"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y2R-ix-3b7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VOb-O3-kaB" kind="relationship" relationship="rootViewController" id="avA-K8-tUN"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1223" y="532"/>
+        </scene>
+        <!--Namesearch View Controller-->
+        <scene sceneID="lr6-4m-iq8">
+            <objects>
+                <viewController id="VOb-O3-kaB" customClass="namesearchViewController" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EzJ-wL-9Fn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xtp-xF-vOV">
+                                <rect key="frame" x="0.0" y="313" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EzJ-wL-9Fn" id="lRZ-pX-7j8"/>
+                                    <outlet property="delegate" destination="EzJ-wL-9Fn" id="F00-Jn-kIH"/>
+                                </connections>
+                            </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="음성 인식을 원하실 경우                           버튼을 눌러 음성을 인식 해주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jOA-yi-FvB">
+                                <rect key="frame" x="87" y="483" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4w-pd-jSg">
+                                <rect key="frame" x="44" y="606" width="100" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="음성인식시작"/>
+                                <connections>
+                                    <action selector="start:" destination="VOb-O3-kaB" eventType="touchUpInside" id="khh-Ml-SOK"/>
+                                    <action selector="startTranscribe:" destination="PCu-5L-lrF" eventType="touchUpInside" id="O5K-rU-1Kj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itz-Vg-5Z3">
+                                <rect key="frame" x="227" y="606" width="100" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="음성인식중단"/>
+                                <connections>
+                                    <action selector="stop:" destination="VOb-O3-kaB" eventType="touchUpInside" id="mHu-xX-9Tw"/>
+                                    <action selector="stopTranscribe:" destination="PCu-5L-lrF" eventType="touchUpInside" id="Tno-TE-dak"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="BGh-mO-Fh4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7eq-9l-JrQ">
+                        <barButtonItem key="rightBarButtonItem" title="역 상세 정보 보기" id="0Bx-s4-ljj">
+                            <connections>
+                                <segue destination="pcV-OD-3Em" kind="show" id="26a-cq-0mN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mytextview2" destination="jOA-yi-FvB" id="cOB-EU-Fex"/>
+                        <outlet property="pickerview2" destination="xtp-xF-vOV" id="bJk-cH-2pA"/>
+                        <outlet property="startbutton" destination="E4w-pd-jSg" id="LIV-zv-kTu"/>
+                        <outlet property="stopbutton" destination="Itz-Vg-5Z3" id="hzm-KC-HGa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hov-XW-BMl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1923" y="532"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PBi-qB-NzE">
@@ -198,6 +285,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pcV-OD-3Em" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Q2k-7b-6vp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y0y-rE-Zhj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
