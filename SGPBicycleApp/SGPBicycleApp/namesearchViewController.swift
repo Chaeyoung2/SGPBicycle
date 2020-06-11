@@ -116,19 +116,26 @@ class namesearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                break
                default: break
                }
+        let trim = self.mytextview2.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        print(trim)
+        for num in 0...stations[clb].count-1{
+            if( trim == stations[clb][num].name){
+            self.pickerview2.selectRow(num, inComponent: 0, animated: true)
+                      }
+    }
     }
     
     //MARK: - 호선 별로보이는
-    var pickerDataSource = ["1호선","2호선","3호선","4호선"]
+    var pickerDataSource = stations[clb]
     //,"5호선","6호선","7호선","8호선","9호선"
     func pickerView(_ pickerView: UIPickerView, titleForRow row : Int , forComponent component : Int)->String?{
-        return pickerDataSource[row]
+        return pickerDataSource[row].name
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {//픽커뷰의 컴포넌트 ㅐㄱ수
           return 1 //일단 1개만들거임
       }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-          return pickerDataSource.count
+        return pickerDataSource.count
       }
       
     

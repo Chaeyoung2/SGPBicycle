@@ -11,4 +11,6 @@ import Foundation
 struct Station{
     let category: String
     let name : String
+    
+ 
 }
