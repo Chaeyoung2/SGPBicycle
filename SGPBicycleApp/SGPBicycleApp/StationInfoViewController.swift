@@ -13,6 +13,10 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     
     @IBOutlet weak var imgLine: UIImageView!
     
+    @IBOutlet weak var textviewStationName: UITextView!
+    @IBOutlet weak var textviewStationCode: UITextView!
+    @IBOutlet weak var textviewRouteName: UITextView!
+    
     // XMl데이터 파싱 위해 클래스에서 다음 변수를 선언
     var parser = XMLParser() // xml 파일을 다운로드 및 파싱하는 오브젝트
     var posts = NSMutableArray() // feed 데이터를 저장하는 mutable array
@@ -29,13 +33,14 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         super.viewDidLoad()
         beginParsing()
         settingImageLine()
+        settingInformation()
         // Do any additional setup after loading the view.
     }
 
     // parser 오브젝트 초기화하고 XMLParserDelegate로 설정하고 XML 파싱 시작
     func beginParsing(){
         posts = []
-        //parser = XMLParser(contentsOf: (URL(string:"http://openapi.tago.go.kr/openapi/service/SubwayInfoService/getKwrdFndSubwaySttnList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D&subwayStationName=서울"))!)! //
+        parser = XMLParser(contentsOf: (URL(string:"http://openapi.tago.go.kr/openapi/service/SubwayInfoService/getKwrdFndSubwaySttnList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D"))!)!
         parser.delegate = self
         parser.parse()
         //tbData!.reloadData()
@@ -87,10 +92,27 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     }
     
     func settingImageLine(){
-        imgOn = UIImage(named:"line1.png")
+        if clb == 0{
+            imgOn = UIImage(named:"line1.png")
+        }
+        else if clb == 1{
+            imgOn = UIImage(named:"line2.png")
+        }
+        else if clb == 2{
+            imgOn = UIImage(named:"line3.png")
+        }
+        else if clb == 3{
+            imgOn = UIImage(named:"line4.png")
+        }
+        else if clb == 4{
+            imgOn = UIImage(named:"line5.png")
+        }
         imgLine.image = imgOn
     }
     
+    func settingInformation(){
+        textviewStationCode.text = (posts.object(at: 0) as AnyObject).value(forKey: "subwayStationId") as! NSString as String
+    }
 
     /*
     // MARK: - Navigation

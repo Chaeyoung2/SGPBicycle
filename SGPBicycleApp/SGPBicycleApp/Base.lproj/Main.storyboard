@@ -63,7 +63,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="역 이름" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bqj-nc-rK2">
-                                <rect key="frame" x="87" y="433" width="240" height="57"/>
+                                <rect key="frame" x="87" y="478" width="240" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -82,13 +82,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="여행 정보"/>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="호선" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="23d-5D-MBy">
+                                <rect key="frame" x="87" y="413" width="240" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="역 코드" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cUU-ig-qti">
+                                <rect key="frame" x="87" y="543" width="240" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Lao-oP-GsC"/>
                     </view>
                     <navigationItem key="navigationItem" id="kGt-Ey-UPE"/>
                     <connections>
-                        <outlet property="imgLine" destination="nGT-rK-DSY" id="hU8-7p-2tF"/>
+                        <outlet property="imgLine" destination="nGT-rK-DSY" id="1xo-XU-hKn"/>
+                        <outlet property="textviewRouteName" destination="23d-5D-MBy" id="KVC-Mt-zfE"/>
+                        <outlet property="textviewStationCode" destination="cUU-ig-qti" id="WaL-VT-Ui8"/>
+                        <outlet property="textviewStationName" destination="Bqj-nc-rK2" id="ZlG-WH-KxV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTr-z1-U6l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

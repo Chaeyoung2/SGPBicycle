@@ -137,17 +137,7 @@ class LineSearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         clb = row
         
     
-        if row == 0 {
-                lineNumber = "일호선"//광진구 시구코드
-                
-            }else if row == 1{//구로구
-                lineNumber = "이호선"
-                
-            }else if row == 2{//동대문구
-                lineNumber = "삼호선"
-            }else if row == 3{//종로구 시구
-                lineNumber = "사호선"
-            }
+ 
     }
     override func viewDidLoad() {
         authorizeSR()
