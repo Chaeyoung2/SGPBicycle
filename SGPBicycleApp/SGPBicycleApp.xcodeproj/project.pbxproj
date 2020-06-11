@@ -16,6 +16,7 @@
 		A17627F42491F577001FC1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17627F22491F577001FC1EC /* LaunchScreen.storyboard */; };
 		A17627FF2491F577001FC1EC /* SGPBicycleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627FE2491F577001FC1EC /* SGPBicycleAppTests.swift */; };
 		A176280A2491F577001FC1EC /* SGPBicycleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17628092491F577001FC1EC /* SGPBicycleAppUITests.swift */; };
+		A176281C24922E05001FC1EC /* StationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176281B24922E05001FC1EC /* StationInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A17628052491F577001FC1EC /* SGPBicycleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SGPBicycleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17628092491F577001FC1EC /* SGPBicycleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPBicycleAppUITests.swift; sourceTree = "<group>"; };
 		A176280B2491F577001FC1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A176281B24922E05001FC1EC /* StationInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				A17627F22491F577001FC1EC /* LaunchScreen.storyboard */,
 				A17627F52491F577001FC1EC /* Info.plist */,
 				A12C654324922A1300C3FFAD /* LineSearchViewController.swift */,
+				A176281B24922E05001FC1EC /* StationInfoViewController.swift */,
 			);
 			path = SGPBicycleApp;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				A17627EC2491F576001FC1EC /* ViewController.swift in Sources */,
 				A17627E82491F576001FC1EC /* AppDelegate.swift in Sources */,
+				A176281C24922E05001FC1EC /* StationInfoViewController.swift in Sources */,
 				A12C654424922A1300C3FFAD /* LineSearchViewController.swift in Sources */,
 				A17627EA2491F576001FC1EC /* SceneDelegate.swift in Sources */,
 			);
