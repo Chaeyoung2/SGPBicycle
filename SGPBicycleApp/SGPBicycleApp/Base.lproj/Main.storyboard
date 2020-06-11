@@ -32,10 +32,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="VGH-3d-Sqa">
-                                <rect key="frame" x="0.0" y="155" width="414" height="600"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enw-ik-F1n">
                                 <rect key="frame" x="164" y="773" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -52,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOc-1e-0xD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="-163"/>
+            <point key="canvasLocation" x="534.78260869565224" y="-163.39285714285714"/>
         </scene>
         <!--Station Info View Controller-->
         <scene sceneID="fed-Ir-qVj">
@@ -295,7 +291,7 @@
         <!--Master-->
         <scene sceneID="88a-st-D1b">
             <objects>
-                <viewController title="Master" id="6b2-iX-EEe" customClass="MasterViewController" customModule="CandySearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Master" id="6b2-iX-EEe" customClass="MasterViewController" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uly-4T-m2g"/>
                         <viewControllerLayoutGuide type="bottom" id="blW-Hs-TB5"/>
@@ -338,7 +334,7 @@
                                     <outlet property="delegate" destination="6b2-iX-EEe" id="9FQ-fa-QwC"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAg-GK-eQN" customClass="SearchFooter" customModule="CandySearch" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAg-GK-eQN" customClass="SearchFooter" customModule="SGPBicycleApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="769" width="414" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -399,7 +395,4 @@
             <point key="canvasLocation" x="1265" y="-163"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="background" width="750" height="1171"/>
-    </resources>
 </document>

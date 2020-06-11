@@ -105,17 +105,7 @@ class namesearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                           startbutton.isEnabled = true
                           stopbutton.isEnabled = false
                       }
-               switch (self.mytextview2.text) {
-               case "일호선" : self.pickerview2.selectRow(0, inComponent: 0, animated: true)
-                   break
-               case "이호선" : self.pickerview2.selectRow(1, inComponent: 0, animated: true)
-                   break
-               case "삼호선" : self.pickerview2.selectRow(2, inComponent: 0, animated: true)
-                   break
-               case "사호선" : self.pickerview2.selectRow(3, inComponent: 0, animated: true)
-               break
-               default: break
-               }
+            
         let trim = self.mytextview2.text.trimmingCharacters(in: .whitespacesAndNewlines)
         print(trim)
         for num in 0...stations[clb].count-1{
@@ -132,7 +122,7 @@ class namesearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         return pickerDataSource[row].name
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {//픽커뷰의 컴포넌트 ㅐㄱ수
-          return 2//일단 1개만들거임
+          return 1//일단 1개만들거임
       }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerDataSource.count
