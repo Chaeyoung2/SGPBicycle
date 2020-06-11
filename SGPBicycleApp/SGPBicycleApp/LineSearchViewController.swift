@@ -1,13 +1,6 @@
-//
-//  LineSearchViewController.swift
-//  SGPBicycleApp
-//
-//  Created by kpugame on 2020/06/11.
-//  Copyright © 2020 SONCHAEYOUNG. All rights reserved.
-//
-
 import UIKit
 import Speech
+
 class LineSearchViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     //MARK: - 권한가져오기
     func authorizeSR() {
@@ -88,7 +81,7 @@ class LineSearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
 
                    self.speechRecognitionRequest = nil
                    self.speechRecognitionTask = nil
-
+//ㄹㄴㄹㄹㄹㄹㄹ
                    self.transcribebutton.isEnabled = true
                }
            }
@@ -109,30 +102,28 @@ class LineSearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
        private var speechRecognitionTask: SFSpeechRecognitionTask?
        private let audioEngine = AVAudioEngine()
 
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        <#code#>
-    }
+   
+    @IBOutlet weak var pickerView: UIPickerView!
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
+//MARK: - 호선 별로보이는
+      var pickerDataSource = ["1호선","2호선","3호선","4호선","5호선","6호선","7호선","8호선","9호선"]
+    func pickerView(_ pickerView: UIPickerView, titleForRow row : Int , forComponent component : Int)->String?{
+        return pickerDataSource[row]
     }
-//
-
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {//픽커뷰의 컴포넌트 ㅐㄱ수
+          return 1 //일단 1개만들거임
+      }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+          return pickerDataSource.count
+      }
+      
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        //피커뷰의 로우가 row == 1 일때 어떤건지 알려주기
+    }
     override func viewDidLoad() {
+        authorizeSR()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
