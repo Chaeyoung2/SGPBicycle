@@ -13,6 +13,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     
     @IBOutlet weak var imgLine: UIImageView!
     
+    @IBOutlet weak var stationNameTextView: UITextView!
     // XMl데이터 파싱 위해 클래스에서 다음 변수를 선언
     var parser = XMLParser() // xml 파일을 다운로드 및 파싱하는 오브젝트
     var posts = NSMutableArray() // feed 데이터를 저장하는 mutable array

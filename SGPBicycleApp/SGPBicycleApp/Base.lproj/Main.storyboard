@@ -93,6 +93,7 @@
                     <navigationItem key="navigationItem" id="kGt-Ey-UPE"/>
                     <connections>
                         <outlet property="imgLine" destination="nGT-rK-DSY" id="hU8-7p-2tF"/>
+                        <outlet property="stationName" destination="Bqj-nc-rK2" id="bki-4O-L70"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTr-z1-U6l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -295,7 +296,7 @@
         <!--Master-->
         <scene sceneID="88a-st-D1b">
             <objects>
-                <viewController title="Master" id="6b2-iX-EEe" customClass="MasterViewController" customModule="CandySearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Master" id="6b2-iX-EEe" customClass="MasterViewController" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uly-4T-m2g"/>
                         <viewControllerLayoutGuide type="bottom" id="blW-Hs-TB5"/>
@@ -338,7 +339,7 @@
                                     <outlet property="delegate" destination="6b2-iX-EEe" id="9FQ-fa-QwC"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAg-GK-eQN" customClass="SearchFooter" customModule="CandySearch" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAg-GK-eQN" customClass="SearchFooter" customModule="SGPBicycleApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="769" width="414" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>

@@ -11,6 +11,10 @@ var clb = 0;
 
 var stations = [[Station]]()
 var FindName : String = ""
+
+var searchInCandy : String = "" // 캔디
+
+
 func loadStations(){
 stations = [[
     Station(category: "1호선", name: "소요산"),
