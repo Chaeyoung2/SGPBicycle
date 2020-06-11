@@ -10,6 +10,9 @@ import UIKit
 
 class StationInfoViewController: UIViewController, XMLParserDelegate {
 
+    
+    @IBOutlet weak var imgLine: UIImageView!
+    
     // XMl데이터 파싱 위해 클래스에서 다음 변수를 선언
     var parser = XMLParser() // xml 파일을 다운로드 및 파싱하는 오브젝트
     var posts = NSMutableArray() // feed 데이터를 저장하는 mutable array
@@ -18,18 +21,21 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     var stationId = NSMutableString() // 저장 문자열 변수
     var stationName = NSMutableString()
     var routeName = NSMutableString()
+    // image
+    var imgOn : UIImage?
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         beginParsing()
+        settingImageLine()
         // Do any additional setup after loading the view.
     }
 
     // parser 오브젝트 초기화하고 XMLParserDelegate로 설정하고 XML 파싱 시작
     func beginParsing(){
         posts = []
-        parser = XMLParser(contentsOf: (URL(string:"http://openapi.tago.go.kr/openapi/service/SubwayInfoService/getKwrdFndSubwaySttnList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D&subwayStationName=서울역"))!)! //
+        //parser = XMLParser(contentsOf: (URL(string:"http://openapi.tago.go.kr/openapi/service/SubwayInfoService/getKwrdFndSubwaySttnList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D&subwayStationName=서울역"))!)! //
         parser.delegate = self
         parser.parse()
         //tbData!.reloadData()
@@ -78,6 +84,11 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             // elements라는 딕셔너리들을 여러개 갖는 posts
             posts.add(elements)
         }
+    }
+    
+    func settingImageLine(){
+        imgOn = UIImage(named:"line1.png")
+        imgLine.image = imgOn
     }
     
 
