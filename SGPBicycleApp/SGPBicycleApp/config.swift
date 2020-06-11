@@ -10,7 +10,7 @@ import Foundation
 var clb = 0;
 
 var stations = [[Station]]()
-
+var FindName : String = ""
 func loadStations(){
 stations = [[
     Station(category: "1호선", name: "소요산"),

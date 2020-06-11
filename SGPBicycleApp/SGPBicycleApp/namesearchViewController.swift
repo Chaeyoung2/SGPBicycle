@@ -132,7 +132,7 @@ class namesearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         return pickerDataSource[row].name
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {//픽커뷰의 컴포넌트 ㅐㄱ수
-          return 1 //일단 1개만들거임
+          return 2//일단 1개만들거임
       }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerDataSource.count
