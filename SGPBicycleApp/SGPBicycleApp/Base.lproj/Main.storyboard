@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="3444.9275362318845" y="223.66071428571428"/>
         </scene>
-        <!--Tour Info Table View Controller-->
+        <!--Tour Table View Controller-->
         <scene sceneID="Sdp-U8-q4H">
             <objects>
-                <tableViewController id="OZN-dW-9WD" customClass="TourInfoTableViewController" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="OZN-dW-9WD" customClass="TourTableViewController" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6vT-7M-311">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

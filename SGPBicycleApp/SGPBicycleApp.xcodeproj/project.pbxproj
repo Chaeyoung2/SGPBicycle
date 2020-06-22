@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A100516424A131FE007AEBCC /* TourTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100516324A131FE007AEBCC /* TourTableViewController.swift */; };
 		A12C654424922A1300C3FFAD /* LineSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C654324922A1300C3FFAD /* LineSearchViewController.swift */; };
 		A17627EA2491F576001FC1EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627E92491F576001FC1EC /* SceneDelegate.swift */; };
 		A17627EC2491F576001FC1EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627EB2491F576001FC1EC /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A100516324A131FE007AEBCC /* TourTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTableViewController.swift; sourceTree = "<group>"; };
 		A12C654324922A1300C3FFAD /* LineSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSearchViewController.swift; sourceTree = "<group>"; };
 		A17627E42491F576001FC1EC /* SGPBicycleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGPBicycleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17627E92491F576001FC1EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		A17627E62491F576001FC1EC /* SGPBicycleApp */ = {
 			isa = PBXGroup;
 			children = (
+				A100516324A131FE007AEBCC /* TourTableViewController.swift */,
 				A1CDA71124928DD600E3E23F /* img_subway.png */,
 				A17628532492624A001FC1EC /* AppDelegate.swift */,
 				A176284B24925FD5001FC1EC /* DetailViewController.swift */,
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17628542492624A001FC1EC /* AppDelegate.swift in Sources */,
+				A100516424A131FE007AEBCC /* TourTableViewController.swift in Sources */,
 				A176284F24925FD5001FC1EC /* MasterViewController.swift in Sources */,
 				A176285024925FD5001FC1EC /* SearchFooter.swift in Sources */,
 				A176284E24925FD5001FC1EC /* DetailViewController.swift in Sources */,
