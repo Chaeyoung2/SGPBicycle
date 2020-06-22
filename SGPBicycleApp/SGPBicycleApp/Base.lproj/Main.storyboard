@@ -85,6 +85,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="여행 정보"/>
+                                <connections>
+                                    <segue destination="hHg-Db-Vuu" kind="show" id="q5Q-hW-qij"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="역 이름" translatesAutoresizingMaskIntoConstraints="NO" id="Bqj-nc-rK2">
                                 <rect key="frame" x="174" y="513" width="240" height="57"/>
@@ -146,6 +149,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTr-z1-U6l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3444.9275362318845" y="223.66071428571428"/>
+        </scene>
+        <!--Tour Info Table View Controller-->
+        <scene sceneID="Sdp-U8-q4H">
+            <objects>
+                <tableViewController id="OZN-dW-9WD" customClass="TourInfoTableViewController" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6vT-7M-311">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pJl-5X-gXG">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pJl-5X-gXG" id="SL0-K7-Z4G">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OZN-dW-9WD" id="3xp-h6-LdH"/>
+                            <outlet property="delegate" destination="OZN-dW-9WD" id="iAq-1c-cDq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="cxv-Pb-ali"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4v-wK-dSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5138" y="660"/>
         </scene>
         <!--호선으로검색-->
         <scene sceneID="Co9-w4-VSw">
@@ -380,7 +412,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="pcV-OD-3Em" kind="show" id="8dd-oS-90z"/>
+                                            <segue destination="pcV-OD-3Em" kind="show" identifier="showDetail" id="8dd-oS-90z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -449,8 +481,27 @@
             </objects>
             <point key="canvasLocation" x="1265" y="-163"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="17i-RF-Owl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hHg-Db-Vuu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ziW-NT-dR3"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XyU-oo-UBN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OZN-dW-9WD" kind="relationship" relationship="rootViewController" id="aWy-rs-AHZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GIC-2I-QMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4464" y="660"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="26a-cq-0mN"/>
+        <segue reference="8dd-oS-90z"/>
     </inferredMetricsTieBreakers>
 </document>

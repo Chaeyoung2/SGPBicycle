@@ -107,29 +107,47 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
   
   // MARK: - Segues
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    print(segue.identifier)
-    if segue.identifier == "showDetail" {
-      if let indexPath = tableView.indexPathForSelectedRow {
-        let station: Station
-        if isFiltering() {
-          station = filteredStations[indexPath.row]
-
-        } else {
-          station = stations[indexPath.row]
-           
+    
+    
+    let indexPath = tableView.indexPathForSelectedRow
+    
+    if !isFiltering(){
+        FindName = stations[indexPath!.row].name
+        if stations[indexPath!.row].category == "1호선"{
+            clb = 0
+        } else if stations[indexPath!.row].category == "2호선"{
+            clb = 1
+        } else if stations[indexPath!.row].category == "3호선"{
+            clb = 2
+        } else if stations[indexPath!.row].category == "4호선"{
+            clb = 3
+        } else if stations[indexPath!.row].category == "5호선"{
+            clb = 4
         }
-        let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-        controller.detailStation = station
-        controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        controller.navigationItem.leftItemsSupplementBackButton = true
-        FindName = station.name
-        
-        print(FindName)
-      }
+    }
+    else{
+        print(indexPath!.row)
+        FindName = filteredStations[indexPath!.row].name
+        if filteredStations[indexPath!.row].category == "1호선"{
+            clb = 0
+        } else if filteredStations[indexPath!.row].category == "2호선"{
+            clb = 1
+        } else if filteredStations[indexPath!.row].category == "3호선"{
+            clb = 2
+        } else if filteredStations[indexPath!.row].category == "4호선"{
+            clb = 3
+        } else if filteredStations[indexPath!.row].category == "5호선"{
+            clb = 4
+        }
     }
     
     
+    print(clb)
+    print(FindName)
+
     }
+    
+    
     
     // MARK: - Private instance methods
     

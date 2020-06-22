@@ -102,13 +102,21 @@ class LineSearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                    stopbutton.isEnabled = false
                }
         switch (self.myTextView.text) {
-        case "일호선" : self.pickerView.selectRow(0, inComponent: 0, animated: true)
+        case "일호선" :
+            self.pickerView.selectRow(0, inComponent: 0, animated: true)
+            clb = 0
             break
-        case "이호선" : self.pickerView.selectRow(1, inComponent: 0, animated: true)
+        case "이호선" :
+            self.pickerView.selectRow(1, inComponent: 0, animated: true)
+            clb = 1
             break
-        case "삼호선" : self.pickerView.selectRow(2, inComponent: 0, animated: true)
+        case "삼호선" :
+            self.pickerView.selectRow(2, inComponent: 0, animated: true)
+            clb = 2
             break
-        case "사호선" : self.pickerView.selectRow(3, inComponent: 0, animated: true)
+        case "사호선" :
+            clb = 3
+            self.pickerView.selectRow(3, inComponent: 0, animated: true)
         break
         default: break
         }
