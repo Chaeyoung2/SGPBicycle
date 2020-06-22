@@ -10,6 +10,15 @@ import UIKit
 
 class TourTableViewController: UITableViewController {
 
+    @IBOutlet var tbData: UITableView! // table view 데이터
+    
+    // xml 데이터 파싱 위한 변수
+    var parser = XMLParser()
+    var posts = NSMutableArray() // feed 데이터 저장
+    var elements = NSMutableDictionary() // feed 데이터 저장
+    
+    
+    // http://openapi.seoul.go.kr:8088/4b477279796d6f6f3930584851756e/xml/SearchLocationOfSTNByIDService/1/5/금정/
     override func viewDidLoad() {
         super.viewDidLoad()
 
