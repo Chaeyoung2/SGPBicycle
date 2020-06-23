@@ -62,7 +62,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         settingInformation()
     
         
-        print("xpos \(XPoint) ypos \(YPoint)")
+        print("xpos \(Xpos) ypos \(Ypos)")
         // Do any additional setup after loading the view.
     }
 
@@ -74,7 +74,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         parser.delegate = self
         parser.parse()
         //tbData!.reloadData()
-        let SstrEncoded = self.escape(string: "http://openAPI.seoul.go.kr:8088/4b477279796d6f6f3930584851756e/xml/SearchLocationOfSTNByIDService/1/5/0150/" + FindCode)
+        let SstrEncoded = self.escape(string: "http://openAPI.seoul.go.kr:8088/4b477279796d6f6f3930584851756e/xml/SearchLocationOfSTNByIDService/1/5/" + FindCode)
                parser = XMLParser(contentsOf: (URL(string:SstrEncoded))!)!
                parser.delegate = self
                parser.parse()
@@ -82,7 +82,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                
         
         
-        let url : String = 동네예보 + "?serviceKey=" + 동네예보인증키 + "&numOfRows=10&pageNo=1 &base_date=" + 현재날짜 + "&base_time=" + 기준시간 + "&nx=" + String(Int(XPoint)) + "&ny=" + String(Int(YPoint))
+        let url : String = 초단기예보 + "?serviceKey=" + 동네예보인증키 + "&numOfRows=100&pageNo=1 &base_date=" + 현재날짜 + "&base_time=" + 기준시간 + "&nx=" + String(Int(XPoint)) + "&ny=" + String(Int(YPoint))
         
         let SsstrEncoded = self.escape(string: url)
         parser = XMLParser(contentsOf: (URL(string:SsstrEncoded))!)!
@@ -150,8 +150,8 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             
             }
         }
-        
         else if element.isEqual(to: "category"){
+            print("카테고리찾음")
            if(string == "POP"){
                꼼수용 = 1
             }
@@ -166,22 +166,31 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             }
                }
         else if element.isEqual(to: "fcstValue"){
-          
-                            if(string != "\n"){
-                         습도 = string
-                                print("습도 :\(습도)")
+          print("밸류값은?")
+            if(string != "\n"){
+                if (꼼수용 == 1){
+                    꼼수용 = 0
+                  강수확률 = string
+                }
+                if (꼼수용 == 2){
+                    습도 = string
+                                   꼼수용 = 0
+                               }
+                if (꼼수용 == 3){
+                    하늘상태 = string
+                                   꼼수용 = 0
+                               }
+                if (꼼수용 == 4){
+                    낮최고기온 = string
+                                   꼼수용 = 0
+                               }
                           }
-                      }
-        else if element.isEqual(to: "SKY"){
-                           if(string != "\n"){
-                              하늘상태 = (string as! NSMutableString) as String
-                         }
-                     }
-        else if element.isEqual(to: "TMX"){
-                                  if(string != "\n"){
-                               낮최고기온 = string
-                                }
-                            }
+            if(꼼수용>0){
+                print(string)
+            }
+            
+            }
+      
         
         
         }
@@ -212,17 +221,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             if !fcstValue.isEqual(nil){
                                     elements.setObject(fcstValue, forKey: "fcstValue" as NSCopying)
                                 }
-            if !POP.isEqual(nil){
-                                               elements.setObject(POP, forKey: "POP" as NSCopying)
-                                           }
-            if !REH.isEqual(nil){elements.setObject(REH, forKey: "REH" as NSCopying)
-                                           }
-            if !TMX.isEqual(nil){
-                                                                      elements.setObject(TMX, forKey: "TMX" as NSCopying)
-                                                                  }
-            if !SKY.isEqual(nil){
-                                                                      elements.setObject(SKY, forKey: "SKY" as NSCopying)
-                                                                  }
+      
             // elements라는 딕셔너리들을 여러개 갖는 posts
             posts.add(elements)
         }
