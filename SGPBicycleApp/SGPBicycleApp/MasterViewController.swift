@@ -113,6 +113,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     
     if !isFiltering(){
         FindName = stations[indexPath!.row].name
+        FindCode = stations[indexPath!.row].returnCode()
         if stations[indexPath!.row].category == "1호선"{
             clb = 0
         } else if stations[indexPath!.row].category == "2호선"{
@@ -128,6 +129,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     else{
         print(indexPath!.row)
         FindName = filteredStations[indexPath!.row].name
+        FindCode = stations[indexPath!.row].returnCode()
         if filteredStations[indexPath!.row].category == "1호선"{
             clb = 0
         } else if filteredStations[indexPath!.row].category == "2호선"{

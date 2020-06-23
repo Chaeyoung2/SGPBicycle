@@ -11,7 +11,7 @@ var clb = 0;
 
 var stations = [[Station]]()
 var FindName : String = ""
-
+var FindCode : String = ""
 var searchInCandy : String = "" // 캔디
 
 

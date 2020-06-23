@@ -30,13 +30,24 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     var routeName = NSMutableString()
     // image
     var imgOn : UIImage?
-
+    
+    //전철역 코드로 위도경도 알려주는 xml파싱에 쓰이는 변수들
+    var Posparser = XMLParser()
+    var Poselements = NSMutableDictionary() // title과 date 같은 feed 데이터를 저장하는 mutable dictionary
+    var Poselement = NSString()
+    var XPOINT_WGS = NSMutableString()
+    var YPOINT_WGS = NSMutableString()
+    var XPoint : Float = 0.0
+    var YPoint : Float = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         beginParsing()
         settingImageLine()
         settingInformation()
+    
+        
+        print("xpos \(XPoint) ypos \(YPoint)")
         // Do any additional setup after loading the view.
     }
 
@@ -48,9 +59,15 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         parser.delegate = self
         parser.parse()
         //tbData!.reloadData()
+        let SstrEncoded = self.escape(string: "http://openAPI.seoul.go.kr:8088/4b477279796d6f6f3930584851756e/xml/SearchLocationOfSTNByIDService/1/5/0150/" + FindCode)
+               parser = XMLParser(contentsOf: (URL(string:SstrEncoded))!)!
+               parser.delegate = self
+               parser.parse()
+               //tbData!.reloadData()
+               print("파싱된 에이피아이주소는: ")
+               print(SstrEncoded)
     }
-    
-
+   
     // parser delegate를 위해 필요한 함수
     // parser가 새로운 element를 발견하면 변수를 생성해야 함
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]){
@@ -64,7 +81,12 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             stationName = ""
             routeName = NSMutableString()
             routeName = ""
+            XPOINT_WGS  = NSMutableString()
+                         XPOINT_WGS  = ""
+                         YPOINT_WGS = NSMutableString()
+                         YPOINT_WGS  = ""
         }
+        
     }
 
     // title과 pubDate을 발견하면 title1과 date에 완성한다
@@ -75,6 +97,20 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             stationName.append(string) // 시도명
         } else if element.isEqual(to: "subwayRouteName"){
             routeName.append(string) // 시군구명
+        }
+        else if element.isEqual(to: "XPOINT_WGS"){
+            print("xpoint찾음" )
+            if(string != "\n"){
+            XPoint  =  Float(string)! // 기관명
+            }
+            
+        }
+        else if element.isEqual(to: "YPOINT_WGS"){
+              if(string != "\n"){
+            YPoint = Float(string)!// 시도명
+
+            }
+            
         }
     }
 
@@ -91,11 +127,20 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             if !routeName.isEqual(nil){
                 elements.setObject(routeName, forKey: "subwayRouteName" as NSCopying)
             }
+            if !XPOINT_WGS.isEqual(nil){
+                            elements.setObject(XPOINT_WGS, forKey: "XPOINT_WGS" as NSCopying)
+                        }
+            if !YPOINT_WGS.isEqual(nil){
+                            elements.setObject(YPOINT_WGS, forKey: "YPOINT_WGS" as NSCopying)
+                        }
             // elements라는 딕셔너리들을 여러개 갖는 posts
             posts.add(elements)
         }
+        print("일반파서엔들어가네?")
     }
-    
+    // MARK: - 위도경도값 불러오는 파싱부분
+   
+    // MARK: -
     func settingImageLine(){
         if clb == 0{
             imgOn = UIImage(named:"line1.png")

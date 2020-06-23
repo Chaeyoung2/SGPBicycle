@@ -32,16 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enw-ik-F1n">
-                                <rect key="frame" x="164" y="773" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="역 명으로 검색"/>
-                                <connections>
-                                    <segue destination="v5f-g5-9bN" kind="show" id="YHl-fx-baG"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uX2-zj-dqH">
-                                <rect key="frame" x="0.0" y="88" width="414" height="677"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="A1i-lx-46b"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="OfQ-xT-M4v"/>
@@ -53,7 +45,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="8bW-4z-RdU"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rK0-dh-kWX"/>
+                    <navigationItem key="navigationItem" id="rK0-dh-kWX">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ph4-US-0Xb">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="enw-ik-F1n">
+                                <rect key="frame" x="308" y="7" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="역 명으로 검색"/>
+                                <connections>
+                                    <segue destination="v5f-g5-9bN" kind="show" id="YHl-fx-baG"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="uX2-zj-dqH" id="1o3-lE-AQe"/>
                     </connections>
@@ -79,6 +82,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="날씨 정보"/>
+                                <connections>
+                                    <segue destination="WaO-qh-lPQ" kind="show" id="jfs-CM-sgD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hk-tS-9si">
                                 <rect key="frame" x="267" y="744" width="92" height="42"/>
@@ -196,7 +202,53 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D4v-wK-dSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5138" y="660"/>
+            <point key="canvasLocation" x="5281" y="25"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="2Gh-y8-WQ1">
+            <objects>
+                <tableViewController id="Oup-ua-8D2" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kHw-FM-mei">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2CL-xz-Alf">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2CL-xz-Alf" id="N6I-75-0Fz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Oup-ua-8D2" id="DNU-uo-UiY"/>
+                            <outlet property="delegate" destination="Oup-ua-8D2" id="HLl-Ya-q68"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="LmS-fJ-RG7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHq-qQ-6fQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5281" y="822"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AOc-Xa-lKz">
+            <objects>
+                <navigationController id="WaO-qh-lPQ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="G6a-be-DBi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jJq-KS-cbi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Oup-ua-8D2" kind="relationship" relationship="rootViewController" id="BkE-jv-V7u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nq4-S4-CC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4364" y="822"/>
         </scene>
         <!--호선으로검색-->
         <scene sceneID="Co9-w4-VSw">
@@ -517,7 +569,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIC-2I-QMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4464" y="660"/>
+            <point key="canvasLocation" x="4364" y="26"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -112,6 +112,7 @@ class namesearchViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             if( trim == stations[clb][num].name){
             self.pickerview2.selectRow(num, inComponent: 0, animated: true)
                 FindName = trim
+                FindCode = stations[clb][num].returnCode()
                 print(FindName)
                       }
     }
