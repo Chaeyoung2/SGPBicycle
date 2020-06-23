@@ -32,14 +32,28 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     var imgOn : UIImage?
     
     //전철역 코드로 위도경도 알려주는 xml파싱에 쓰이는 변수들
-    var Posparser = XMLParser()
-    var Poselements = NSMutableDictionary() // title과 date 같은 feed 데이터를 저장하는 mutable dictionary
-    var Poselement = NSString()
     var XPOINT_WGS = NSMutableString()
     var YPOINT_WGS = NSMutableString()
+    
+    
+    // MARK: - 아래의 플롯변수에 위도 경도 저장되요!
     var XPoint : Float = 0.0
     var YPoint : Float = 0.0
 
+    // Mark: - 위도 경도를 통해 동네 예보
+    var 동네예보 = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst"
+    var 초단기예보 = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst"
+    var 동네예보인증키 = "peuzoABFl3ew9WDJeae1ap8n5rlnIok9P1zH0%2FzIXXz2LM%2B8qahwkE1WckPkvD%2FET%2BZ5nN3LltIICJNplE0zvA%3D%3D"
+    var 현재날짜 = "20200623"
+    var 기준시간 = "0600"
+    var category = NSMutableString()
+    var fcstValue = NSMutableString()
+    var POP = NSMutableString() // 강수확률
+    var REH =  NSMutableString() // 습도
+    var SKY =  NSMutableString() // 하늘상태
+    var TMX =   NSMutableString() // 낮최고기온
+    var 현재기온 = NSMutableString()
+    // MARK: - 해당 화면이 불려질때 불려지는 함수들
     override func viewDidLoad() {
         super.viewDidLoad()
         beginParsing()
@@ -64,8 +78,19 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                parser.delegate = self
                parser.parse()
                //tbData!.reloadData()
-               print("파싱된 에이피아이주소는: ")
-               print(SstrEncoded)
+               
+        
+        
+        let url : String = 초단기예보 + "?serviceKey=" + 동네예보인증키 + "&numOfRows=100&pageNo=1 &base_date=" + 현재날짜 + "&base_time=" + 기준시간 + "&nx=" + String(Int(XPoint)) + "&ny=" + String(Int(YPoint))
+        
+        let SsstrEncoded = self.escape(string: url)
+        parser = XMLParser(contentsOf: (URL(string:SsstrEncoded))!)!
+                   parser.delegate = self
+                   parser.parse()
+        print("파싱된 에이피아이주소는: ")
+        print(SsstrEncoded)
+        print(url)
+        
     }
    
     // parser delegate를 위해 필요한 함수
@@ -85,6 +110,16 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                          XPOINT_WGS  = ""
                          YPOINT_WGS = NSMutableString()
                          YPOINT_WGS  = ""
+
+            category = NSMutableString()
+            fcstValue = NSMutableString()
+            category = ""
+            fcstValue = ""
+            
+          POP = NSMutableString() // 강수확률
+          REH =  NSMutableString() // 습도
+          SKY =  NSMutableString() // 하늘상태
+          TMX =   NSMutableString() // 낮최고기온
         }
         
     }
@@ -101,19 +136,29 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         else if element.isEqual(to: "XPOINT_WGS"){
             print("xpoint찾음" )
             if(string != "\n"){
-            XPoint  =  Float(string)! // 기관명
+            XPoint  =  Float(string)!
             }
-            
         }
         else if element.isEqual(to: "YPOINT_WGS"){
               if(string != "\n"){
-            YPoint = Float(string)!// 시도명
-
+            YPoint = Float(string)!
+            }
+        }
+        else if element.isEqual(to: "fcstValue"){
+                     if(string != "\n"){
+                        print("fcstValue : \(string)")
+            }
+        }
+        else if element.isEqual(to: "category"){
+            if(string == "SKY"){
+                print(string)
             }
             
+                                  if(string != "\n"){
+                               print(string)
+            }
         }
     }
-
     // 하나의 카테고리 item이 끝나게 되면 그 title을 key 값으로,title1을 value로 하여서
     // element의 끝에서 feed 데이터를 dictionary에 저장
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
@@ -133,10 +178,15 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             if !YPOINT_WGS.isEqual(nil){
                             elements.setObject(YPOINT_WGS, forKey: "YPOINT_WGS" as NSCopying)
                         }
+            if !category.isEqual(nil){
+                                    elements.setObject(category, forKey: "category" as NSCopying)
+                                }
+            if !fcstValue.isEqual(nil){
+                                    elements.setObject(fcstValue, forKey: "fcstValue" as NSCopying)
+                                }
             // elements라는 딕셔너리들을 여러개 갖는 posts
             posts.add(elements)
         }
-        print("일반파서엔들어가네?")
     }
     // MARK: - 위도경도값 불러오는 파싱부분
    
@@ -182,3 +232,4 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     */
 
 }
+
