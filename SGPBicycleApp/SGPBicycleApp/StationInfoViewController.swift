@@ -45,7 +45,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     var 초단기예보 = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst"
     var 동네예보인증키 = "peuzoABFl3ew9WDJeae1ap8n5rlnIok9P1zH0%2FzIXXz2LM%2B8qahwkE1WckPkvD%2FET%2BZ5nN3LltIICJNplE0zvA%3D%3D"
     var 현재날짜 = "20200623"
-    var 기준시간 = "0600"
+    var 기준시간 = "0800"
     var category = NSMutableString()
     var fcstValue = NSMutableString()
     var POP = NSMutableString() // 강수확률
@@ -53,6 +53,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     var SKY =  NSMutableString() // 하늘상태
     var TMX =   NSMutableString() // 낮최고기온
     var 현재기온 = NSMutableString()
+    var 꼼수용 = 0
     // MARK: - 해당 화면이 불려질때 불려지는 함수들
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +82,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                
         
         
-        let url : String = 초단기예보 + "?serviceKey=" + 동네예보인증키 + "&numOfRows=100&pageNo=1 &base_date=" + 현재날짜 + "&base_time=" + 기준시간 + "&nx=" + String(Int(XPoint)) + "&ny=" + String(Int(YPoint))
+        let url : String = 동네예보 + "?serviceKey=" + 동네예보인증키 + "&numOfRows=10&pageNo=1 &base_date=" + 현재날짜 + "&base_time=" + 기준시간 + "&nx=" + String(Int(XPoint)) + "&ny=" + String(Int(YPoint))
         
         let SsstrEncoded = self.escape(string: url)
         parser = XMLParser(contentsOf: (URL(string:SsstrEncoded))!)!
@@ -120,6 +121,10 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
           REH =  NSMutableString() // 습도
           SKY =  NSMutableString() // 하늘상태
           TMX =   NSMutableString() // 낮최고기온
+          POP = "" // 강수확률
+          REH =  ""// 습도
+          SKY =  "" // 하늘상태
+          TMX =  "" // 낮최고기온
         }
         
     }
@@ -136,29 +141,52 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         else if element.isEqual(to: "XPOINT_WGS"){
             print("xpoint찾음" )
             if(string != "\n"){
-            XPoint  =  Float(string)!
+            Xpos  =  Float(string)!
             }
         }
         else if element.isEqual(to: "YPOINT_WGS"){
               if(string != "\n"){
-            YPoint = Float(string)!
-            }
-        }
-        else if element.isEqual(to: "fcstValue"){
-                     if(string != "\n"){
-                        print("fcstValue : \(string)")
-            }
-        }
-        else if element.isEqual(to: "category"){
-            if(string == "SKY"){
-                print(string)
-            }
+            Ypos = Float(string)!
             
-                                  if(string != "\n"){
-                               print(string)
             }
         }
-    }
+        
+        else if element.isEqual(to: "category"){
+           if(string == "POP"){
+               꼼수용 = 1
+            }
+            if(string == "REH"){
+               꼼수용 = 2
+            }
+            if(string == "SKY"){
+               꼼수용 = 3
+            }
+            if(string == "TMX"){
+               꼼수용 = 4
+            }
+               }
+        else if element.isEqual(to: "fcstValue"){
+          
+                            if(string != "\n"){
+                         습도 = string
+                                print("습도 :\(습도)")
+                          }
+                      }
+        else if element.isEqual(to: "SKY"){
+                           if(string != "\n"){
+                              하늘상태 = (string as! NSMutableString) as String
+                         }
+                     }
+        else if element.isEqual(to: "TMX"){
+                                  if(string != "\n"){
+                               낮최고기온 = string
+                                }
+                            }
+        
+        
+        }
+        
+    
     // 하나의 카테고리 item이 끝나게 되면 그 title을 key 값으로,title1을 value로 하여서
     // element의 끝에서 feed 데이터를 dictionary에 저장
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
@@ -184,6 +212,17 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             if !fcstValue.isEqual(nil){
                                     elements.setObject(fcstValue, forKey: "fcstValue" as NSCopying)
                                 }
+            if !POP.isEqual(nil){
+                                               elements.setObject(POP, forKey: "POP" as NSCopying)
+                                           }
+            if !REH.isEqual(nil){elements.setObject(REH, forKey: "REH" as NSCopying)
+                                           }
+            if !TMX.isEqual(nil){
+                                                                      elements.setObject(TMX, forKey: "TMX" as NSCopying)
+                                                                  }
+            if !SKY.isEqual(nil){
+                                                                      elements.setObject(SKY, forKey: "SKY" as NSCopying)
+                                                                  }
             // elements라는 딕셔너리들을 여러개 갖는 posts
             posts.add(elements)
         }
