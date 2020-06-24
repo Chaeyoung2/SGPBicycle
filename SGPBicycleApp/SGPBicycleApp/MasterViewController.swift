@@ -132,7 +132,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     else{
-        print(indexPath!.row)
+        //print(indexPath!.row)
         FindName = filteredStations[indexPath!.row].name
         FindCode = stations[indexPath!.row].returnCode()
         if filteredStations[indexPath!.row].category == "1호선"{
@@ -154,10 +154,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    print("clb : " + String(clb))
-    print("FindName : " + String(FindName))
-    print("FindCode : " + String(FindCode))
-    print("FindLine : " + String(FindLine))
+//    print("clb : " + String(clb))
+//    print("FindName : " + String(FindName))
+//    print("FindCode : " + String(FindCode))
+//    print("FindLine : " + String(FindLine))
 
 
     }
