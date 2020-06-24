@@ -11,6 +11,7 @@ var clb = 0;
 
 var stations = [[Station]]()
 var FindName : String = ""
+var FindLine : String = ""
 var FindCode : String = ""
 var 강수확률 = "" // 강수확률
 var 습도 =  "" // 습도
