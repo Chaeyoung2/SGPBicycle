@@ -25,6 +25,7 @@ var urlTourImage = ""
 var g_tourAddr = ""
 var g_tourPhone = ""
 var g_tourTitle = ""
+var g_tourType = ""
 
 var searchInCandy : String = "" // 캔디
 

@@ -78,19 +78,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjX-cp-cmV">
-                                <rect key="frame" x="57" y="744" width="92" height="42"/>
+                                <rect key="frame" x="52" y="744" width="105" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="날씨 정보"/>
+                                <state key="normal" title="날씨 볼까?"/>
                                 <connections>
                                     <segue destination="WaO-qh-lPQ" kind="show" id="jfs-CM-sgD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hk-tS-9si">
-                                <rect key="frame" x="267" y="744" width="92" height="42"/>
+                                <rect key="frame" x="261" y="744" width="105" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="여행 정보"/>
+                                <state key="normal" title="여행 갈까?"/>
                                 <connections>
                                     <segue destination="jC5-KJ-wYV" kind="show" id="pfo-Ck-Djo"/>
                                 </connections>
@@ -224,20 +224,25 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="Vvr-GH-SAM"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="uEm-Xl-SNT"/>
                             </scrollView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="주소 : 경기도 웅앵" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-Lf-wSW">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="주소 : 경기도 웅앵" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-Lf-wSW">
                                 <rect key="frame" x="20" y="375" width="374" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nbF-Z5-61I">
+                                <rect key="frame" x="0.0" y="508" width="414" height="305"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="G1n-sE-qXa"/>
                     </view>
                     <navigationItem key="navigationItem" id="srY-9H-26P"/>
                     <connections>
+                        <outlet property="mapView" destination="nbF-Z5-61I" id="OJf-qj-Uv4"/>
                         <outlet property="pageControl" destination="z28-vo-jx2" id="jWH-xA-kOe"/>
                         <outlet property="scrollView" destination="KTM-Ba-pmg" id="arf-ue-Oy4"/>
                         <outlet property="textView" destination="9Ea-Lf-wSW" id="CjS-XN-hb2"/>
@@ -245,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKu-3T-30h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6286" y="446"/>
+            <point key="canvasLocation" x="6275.36231884058" y="150.66964285714286"/>
         </scene>
         <!--Wheather View Controller-->
         <scene sceneID="Vmw-hM-L9I">

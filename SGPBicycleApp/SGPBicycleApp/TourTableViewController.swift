@@ -21,6 +21,7 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
     var tourTitle = NSMutableString()
     var tourTel = NSMutableString()
     var urlImage = NSMutableString()
+    var tourTypeId = NSMutableString()
     
     var selectedCellNum = 0
     
@@ -61,6 +62,8 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
             urlImage = ""
             tourTel = NSMutableString()
             tourTel = ""
+            tourTypeId = NSMutableString()
+            tourTypeId = ""
         }
     }
     // title과 pubDate을 발견하면 title1과 date에 완성
@@ -76,6 +79,9 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
         }
         else if element.isEqual(to: "tel"){
             tourTel.append(string) // tel
+        }
+        else if element.isEqual(to: "contenttypeid"){
+            tourTypeId.append(string) // tour type
         }
     }
         
@@ -93,8 +99,11 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
             if !urlImage.isEqual(nil){
                 elements.setObject(urlImage, forKey: "firstimage" as NSCopying)
             }
-            if !urlImage.isEqual(nil){
+            if !tourTel.isEqual(nil){
                 elements.setObject(tourTel, forKey: "tel" as NSCopying)
+            }
+            if !tourTypeId.isEqual(nil){
+                elements.setObject(tourTypeId, forKey: "contenttypeid" as NSCopying)
             }
             
             posts.add(elements)
@@ -104,6 +113,33 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
     func escape(string: String) -> String{
         let allowedCharacters = string.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn:"#").inverted) ?? ""
         return allowedCharacters
+    }
+    func setgTourType(){
+        var typeid = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "contenttypeid") as! NSString as String
+               if(typeid == "12"){
+                   g_tourType = "관광지"
+               }
+               else if(typeid == "14"){
+                   g_tourType = "문화 시설"
+               }
+               else if(typeid == "15"){
+                   g_tourType = "행사/공연/축제"
+               }
+               else if(typeid == "25"){
+                   g_tourType = "여행 코스"
+               }
+               else if(typeid == "28"){
+                   g_tourType = "레포츠"
+               }
+               else if(typeid == "32"){
+                   g_tourType = "숙박"
+               }
+               else if(typeid == "38"){
+                   g_tourType = "쇼핑"
+               }
+               else if(typeid == "39"){
+                   g_tourType = "음식점"
+               }
     }
 
     // MARK: - Table view data source
@@ -136,6 +172,9 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
         g_tourAddr = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "addr1") as! NSString as String
         g_tourPhone = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "tel") as! NSString as String
         g_tourTitle = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "title") as! NSString as String
+        setgTourType()
+       
+        
 //        print("selectedCellNum = \(selectedCellNum)")
 //        print("g_tourTitle = " + g_tourTitle)
 //        print("urlTourImage = " + urlTourImage)

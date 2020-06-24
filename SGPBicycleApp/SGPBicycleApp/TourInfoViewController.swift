@@ -7,20 +7,66 @@
 //
 
 import UIKit
+import MapKit
 
 class TourInfoViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var mapView: MKMapView!
     
     var pageImages : [UIImage] = []
     var pageViews : [UIImageView?] = []
+    
+    let initialLocation = CLLocation(latitude: (Xpos as NSString).doubleValue, longitude: (Ypos as NSString).doubleValue)
+    // 이 지역은 regionRaduis (1000m) 거리에 따라 남북 및 동서에 걸쳐있을 것이다.
+    let regionRadius: CLLocationDistance = 1000
+    var tours: [Tour] = []
+    
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
         setImage()
         setTourInfoTextView()
+        
+        setLocation()
+        centerMapOnLocation(location: initialLocation) // center를 initialLocation으로
+        mapView.delegate = self // TourInfoViewController가 mapView의 delegate임을 설정
+        mapView.register(TourMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        loadInitialData()
+        mapView.addAnnotations(tours) // 배열을 전부 핀으로 표시
         // Do any additional setup after loading the view.
+        
+        super.viewDidLoad()
+    }
+    
+    func showTourOnMap(){
+        let tour = Tour(title: g_tourTitle, locationName: g_tourAddr, discipline: g_tourType,
+                        coordinate: CLLocationCoordinate2D(latitude: (Xpos as NSString).doubleValue, longitude: (Ypos as NSString).doubleValue))
+        mapView.addAnnotation(tour)
+        
+    }
+    
+    // Tour 객체 배열 생성
+    func loadInitialData(){
+        let validTours = Tour(title: g_tourTitle, locationName: g_tourAddr, discipline: g_tourType,
+                                              coordinate: CLLocationCoordinate2D(latitude: (Xpos as NSString).doubleValue, longitude: (Ypos as NSString).doubleValue))
+        tours.append(validTours)
+    }
+    
+    // regionRadius을 사용. Json 파일에서 공용 아트웍 데이터를 폴로팅 하는 데 적합한 거리임.
+    // setRegion은 region을 표시하도록 mapview에 지시
+    func centerMapOnLocation(location: CLLocation){
+        
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func setLocation(){
+        _ = CLLocation(latitude: (Xpos as NSString).doubleValue, longitude: (Ypos as NSString).doubleValue)
+        // print((Xpos as NSString).doubleValue)
+        // print((Ypos as NSString).doubleValue)
     }
     
     func setImage(){
@@ -105,7 +151,19 @@ class TourInfoViewController: UIViewController {
     }
     
     func setTourInfoTextView(){
-        self.textView.text = "주소 : " + g_tourAddr + "\n전화번호 : " + g_tourPhone
+        if(g_tourPhone == ""){
+            self.textView.text = "주소: " + g_tourAddr + "\n전화번호: 번호가 없어요 〣(ºΔº)〣 " + g_tourPhone + "\n컨텐츠 유형: " + g_tourType
+        }
+        else {
+            self.textView.text = "주소: " + g_tourAddr + "\n전화번호: " + g_tourPhone + "\n컨텐츠 유형: " + g_tourType
+        }
+         
+        
+        self.title = g_tourTitle
+    }
+    
+    override func didReceiveMemoryWarning(){
+        super.didReceiveMemoryWarning()
     }
 
     /*

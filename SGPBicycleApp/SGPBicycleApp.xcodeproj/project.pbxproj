@@ -12,6 +12,9 @@
 		A12C654424922A1300C3FFAD /* LineSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C654324922A1300C3FFAD /* LineSearchViewController.swift */; };
 		A157F44B24A28667007B7313 /* TourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F44A24A28667007B7313 /* TourViewController.swift */; };
 		A157F45924A337C2007B7313 /* TourInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F45824A337C2007B7313 /* TourInfoViewController.swift */; };
+		A157F45B24A371E8007B7313 /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F45A24A371E8007B7313 /* Tour.swift */; };
+		A157F45D24A3744E007B7313 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F45C24A3744E007B7313 /* VCMapView.swift */; };
+		A157F45F24A378B7007B7313 /* TourViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F45E24A378B7007B7313 /* TourViews.swift */; };
 		A17627EA2491F576001FC1EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627E92491F576001FC1EC /* SceneDelegate.swift */; };
 		A17627EC2491F576001FC1EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627EB2491F576001FC1EC /* ViewController.swift */; };
 		A17627EF2491F576001FC1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17627ED2491F576001FC1EC /* Main.storyboard */; };
@@ -63,6 +66,9 @@
 		A12C654324922A1300C3FFAD /* LineSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSearchViewController.swift; sourceTree = "<group>"; };
 		A157F44A24A28667007B7313 /* TourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewController.swift; sourceTree = "<group>"; };
 		A157F45824A337C2007B7313 /* TourInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourInfoViewController.swift; sourceTree = "<group>"; };
+		A157F45A24A371E8007B7313 /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
+		A157F45C24A3744E007B7313 /* VCMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
+		A157F45E24A378B7007B7313 /* TourViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViews.swift; sourceTree = "<group>"; };
 		A17627E42491F576001FC1EC /* SGPBicycleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGPBicycleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17627E92491F576001FC1EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A17627EB2491F576001FC1EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 		A17627E62491F576001FC1EC /* SGPBicycleApp */ = {
 			isa = PBXGroup;
 			children = (
+				A157F45C24A3744E007B7313 /* VCMapView.swift */,
 				A100516324A131FE007AEBCC /* TourTableViewController.swift */,
 				A1CDA71124928DD600E3E23F /* img_subway.png */,
 				A17628532492624A001FC1EC /* AppDelegate.swift */,
@@ -175,6 +182,8 @@
 				A157F44A24A28667007B7313 /* TourViewController.swift */,
 				A157F45824A337C2007B7313 /* TourInfoViewController.swift */,
 				A1F7FF7224A347170013E43C /* WheatherViewController.swift */,
+				A157F45A24A371E8007B7313 /* Tour.swift */,
+				A157F45E24A378B7007B7313 /* TourViews.swift */,
 			);
 			path = SGPBicycleApp;
 			sourceTree = "<group>";
@@ -338,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A157F45D24A3744E007B7313 /* VCMapView.swift in Sources */,
 				A17628542492624A001FC1EC /* AppDelegate.swift in Sources */,
 				A157F45924A337C2007B7313 /* TourInfoViewController.swift in Sources */,
 				A100516624A13BAF007AEBCC /* StationViewController.swift in Sources */,
@@ -351,9 +361,11 @@
 				A176284824925CB1001FC1EC /* Station.swift in Sources */,
 				A176281C24922E05001FC1EC /* StationInfoViewController.swift in Sources */,
 				A17DE13E2492590500B85E20 /* config.swift in Sources */,
+				A157F45B24A371E8007B7313 /* Tour.swift in Sources */,
 				A12C654424922A1300C3FFAD /* LineSearchViewController.swift in Sources */,
 				A1F7FF7324A347170013E43C /* WheatherViewController.swift in Sources */,
 				A17627EA2491F576001FC1EC /* SceneDelegate.swift in Sources */,
+				A157F45F24A378B7007B7313 /* TourViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
