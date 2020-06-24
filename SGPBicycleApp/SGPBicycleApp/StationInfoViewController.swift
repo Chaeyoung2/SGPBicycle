@@ -44,7 +44,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     var 동네예보 = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst"
     var 초단기예보 = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst"
     var 동네예보인증키 = "peuzoABFl3ew9WDJeae1ap8n5rlnIok9P1zH0%2FzIXXz2LM%2B8qahwkE1WckPkvD%2FET%2BZ5nN3LltIICJNplE0zvA%3D%3D"
-    var 현재날짜 = "20200624"
+    var 현재날짜 = "20200624"// 당일날짜밖에안되는거같음
     var 기준시간 = "0800"
     var category = NSMutableString()
     var fcstValue = NSMutableString()
@@ -54,6 +54,8 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     var TMX =   NSMutableString() // 낮최고기온
     var 현재기온 = NSMutableString()
     var 꼼수용 = 0
+    var fcstTime = NSMutableString()
+    var temptime = 0
     // MARK: - 해당 화면이 불려질때 불려지는 함수들
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +118,9 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             fcstValue = NSMutableString()
             category = ""
             fcstValue = ""
+            fcstTime = NSMutableString()
+            fcstTime = ""
+            
             
           POP = NSMutableString() // 강수확률
           REH =  NSMutableString() // 습도
@@ -151,6 +156,9 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                 YPoint = Float(string)!
             }
         }
+        else if element.isEqual(to: "fsctTime"){
+            temptime = Int(string)!
+        }
         else if element.isEqual(to: "category"){
             print("카테고리찾음")
            if(string == "POP"){
@@ -176,12 +184,16 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             if(string != "\n"){
                 if (꼼수용 == 1){
                     꼼수용 = 0
+                    if(Int(string)!>90){
+                        하늘상태 = "2"
+                    }
+                    시간별강수.updateValue(string, forKey: temptime)
                     print("강수확률 : \(string)")
-                  강수확률 = string
+                    //강수확률.append(string)
                 }
                 if (꼼수용 == 2){
-                    습도 = string
-                    
+                    //습도.append(string)
+                    시간별습도.updateValue(string, forKey: temptime)
                     print("습도 : \(string)")
                                    꼼수용 = 0
                                }
@@ -206,9 +218,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         
         }
         
-    
-    // 하나의 카테고리 item이 끝나게 되면 그 title을 key 값으로,title1을 value로 하여서
-    // element의 끝에서 feed 데이터를 dictionary에 저장
+    //아이템에서 키에 해당하는 아이템이있을경우 엘리멘츠에 넣어줌
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
         if(elementName as NSString).isEqual(to: "item"){
             if !stationId.isEqual(nil){
@@ -237,24 +247,28 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             posts.add(elements)
         }
     }
-    // MARK: - 위도경도값 불러오는 파싱부분
    
     // MARK: -
     func settingImageLine(){
         if clb == 0{
             imgOn = UIImage(named:"line1.png")
+            FindLine = "1"
         }
         else if clb == 1{
             imgOn = UIImage(named:"line2.png")
+            FindLine = "2"
         }
         else if clb == 2{
             imgOn = UIImage(named:"line3.png")
+            FindLine = "3"
         }
         else if clb == 3{
             imgOn = UIImage(named:"line4.png")
+            FindLine = "4"
         }
         else if clb == 4{
             imgOn = UIImage(named:"line5.png")
+            FindLine = "5"
         }
         imgLine.image = imgOn
     }

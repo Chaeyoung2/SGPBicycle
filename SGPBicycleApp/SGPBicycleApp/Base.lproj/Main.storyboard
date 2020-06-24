@@ -258,34 +258,68 @@
             </objects>
             <point key="canvasLocation" x="5963.768115942029" y="150.66964285714286"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="2Gh-y8-WQ1">
+        <!--Wheather View Controller-->
+        <scene sceneID="Vmw-hM-L9I">
             <objects>
-                <tableViewController id="Oup-ua-8D2" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kHw-FM-mei">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZCA-da-JGY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="hmJ-Sx-wco" customClass="WheatherViewController" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YNx-gp-9Ob">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2CL-xz-Alf">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2CL-xz-Alf" id="N6I-75-0Fz">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Oup-ua-8D2" id="DNU-uo-UiY"/>
-                            <outlet property="delegate" destination="Oup-ua-8D2" id="HLl-Ya-q68"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="LmS-fJ-RG7"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LHq-qQ-6fQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="EQq-ja-xaM">
+                                <rect key="frame" x="0.0" y="60" width="414" height="381"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="낮최고기온 :     30 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsX-s1-kWl">
+                                <rect key="frame" x="0.0" y="542" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="낮최고기온 :     30 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnP-cE-N7P">
+                                <rect key="frame" x="0.0" y="603" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="낮최고기온 :     30 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bx-8z-JGQ">
+                                <rect key="frame" x="0.0" y="664" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="낮최고기온 :     30 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wD9-U0-ySa">
+                                <rect key="frame" x="0.0" y="725" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0N-Y8-tGR">
+                                <rect key="frame" x="229" y="449" width="185" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="강수확률차트보기"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="fPv-pe-FHr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1Ke-0b-Ehw"/>
+                    <connections>
+                        <outlet property="Wheatherimg" destination="EQq-ja-xaM" id="PEC-oB-gPw"/>
+                        <outlet property="강수확률아울렛" destination="wD9-U0-ySa" id="Pij-Ra-7bC"/>
+                        <outlet property="아울렛_습도" destination="2bx-8z-JGQ" id="2zv-mk-Hf7"/>
+                        <outlet property="아울렛_하늘상태" destination="vnP-cE-N7P" id="azu-DI-Y62"/>
+                        <outlet property="온도" destination="WsX-s1-kWl" id="Otf-Ee-aLO"/>
+                    </connections>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="5041" y="822"/>
+            <point key="canvasLocation" x="5189.8550724637689" y="821.65178571428567"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AOc-Xa-lKz">
@@ -297,7 +331,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Oup-ua-8D2" kind="relationship" relationship="rootViewController" id="BkE-jv-V7u"/>
+                        <segue destination="hmJ-Sx-wco" kind="relationship" relationship="rootViewController" id="nn8-hz-33z"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nq4-S4-CC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -629,4 +663,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="8dd-oS-90z"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="3" width="272" height="214"/>
+    </resources>
 </document>
