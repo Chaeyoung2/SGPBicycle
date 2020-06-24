@@ -16,33 +16,33 @@ struct WheatherChart: View {
   var body: some View {
     // 1
     VStack {
-        Text("시간대별 확률")
+        Text(텍스트)
     HStack{
       // 2
       ForEach(0..<9) { index in
         // 3
         VStack {
           // 4
-          Spacer()
-            Text((self.posts[index] as! NSDictionary).value(forKey: self.tempstr) as! NSString as String)
-            .font(.footnote)
-            .rotationEffect(.degrees(-90))
-                .offset(y : 0)
-            .zIndex(1)
-          // 5
-          Rectangle()
-            .fill(Color.blue)
-            .frame(width: 20, height:
-                Int((self.posts[index] as! NSDictionary).value(forKey: self.tempstr) as! NSString as String)! < 25 ? 25:
-                    (Int((self.posts[index] as! NSDictionary).value(forKey: self.tempstr) as! NSString as String)! <  50 ? 50:
-                        (Int((self.posts[index] as! NSDictionary).value(forKey: self.tempstr) as! NSString as String)! < 75 ? 75:
-                            (Int((self.posts[index] as! NSDictionary).value(forKey: self.tempstr) as! NSString as String)! < 100  ? 100: 100)))
-        )
-          
-          // 6
-            Text((self.posts[index] as! NSDictionary).value(forKey: self.tempstr2) as! NSString as String)
-            .font(.footnote)
-            .frame(height: 20)
+            Spacer()
+              Text(저장용[index] as NSString as String)
+              .font(.footnote)
+              .rotationEffect(.degrees(0))
+                  .offset(y : 0)
+              .zIndex(1)
+            // 5
+            Rectangle()
+              .fill(Color.blue)
+              .frame(width: 20, height:
+                  Int(저장용[index] as NSString as String)! < 25 ? 25:
+                      (Int(저장용[index] as NSString as String)! <  50 ? 50:
+                          (Int(저장용[index] as NSString as String)! < 75 ? 75:
+                              (Int(저장용[index] as NSString as String)! < 100  ? 100: 100)))
+          )
+            
+            // 6
+              Text(시간저장용[index] as NSString as String)
+              .font(.footnote)
+              .frame(height: 20)
         }
       }
     }
@@ -93,6 +93,7 @@ class ViewController_Wheather: UIViewController, UIPickerViewDelegate,UIPickerVi
     
     var Row = 0{//로우가 바뀔때마다 디드셋을 실행시켜줌
          didSet {
+            addui()
      }
     }
     // 차트를 화면에 그려주는부분
@@ -129,8 +130,17 @@ class ViewController_Wheather: UIViewController, UIPickerViewDelegate,UIPickerVi
        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
            //피커뷰의 로우가 row == 1 일때 어떤건지 알려주기
         Row = row
+        print(Row)
         if(row==0){
-            posts = 시간별
+            텍스트 = "시간대별 강수확률"
+            저장용 = 강수확률
+            시간저장용 = 시간
+        }
+        else if(row==1){
+            텍스트 = "시간대별 습도"
+            저장용 = 습도
+            시간저장용 = 시간1
+       
         }
     }
     override func viewDidLoad() {

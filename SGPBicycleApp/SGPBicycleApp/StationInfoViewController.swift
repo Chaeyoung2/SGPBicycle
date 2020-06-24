@@ -65,7 +65,8 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         settingImageLine()
         settingInformation()
         explodeParticle()
-        
+        저장용 = 강수확률
+        시간저장용 = 시간
         // print("xpos \(Xpos) ypos \(Ypos)")
         // Do any additional setup after loading the view.
     }
@@ -156,8 +157,9 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             YPoint = Float(string)!
             }
         }
-         if element.isEqual(to: "fsctTime"){
+         if element.isEqual(to: "fcstTime"){
             temptime = Int(string)!
+            tempstring = string
         }
         else if element.isEqual(to: "category"){
            if(string == "POP"){
@@ -186,20 +188,17 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                           if(Int(string)!>90){
                               하늘상태 = "2"
                           }
-                          시간별강수.updateValue(string, forKey: temptime)
-                          
-                          tempelements.setObject(string, forKey: "POP" as NSCopying)
-                          시간별.add(tempelements)
-                          tempelements.setObject(tempstring, forKey: "fcstTime" as NSCopying)
-                          시간별.add(tempelements)
-                          print("시간별 갯수 : \(시간별.count)")
-                          print("시간: \(tempstring) 강수확률 : \(string) " )
-                          //강수확률.append(string)
+                        시간별강수.updateValue(string, forKey: temptime)
+                                     
+                        강수확률.append(string)
+                        시간.append(tempstring)
+                   
                       }
                       if (꼼수용 == 2){
                           //습도.append(string)
                           시간별습도.updateValue(string, forKey: temptime)
-                      
+                        습도.append(string)
+                        시간1.append(tempstring)
                                          꼼수용 = 0
                                      }
                       if (꼼수용 == 3){

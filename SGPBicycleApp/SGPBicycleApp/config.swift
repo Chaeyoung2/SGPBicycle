@@ -13,6 +13,10 @@ var stations = [[Station]]()
 var FindName : String = ""
 var FindLine : String = ""
 var FindCode : String = ""
+var 시간 = [String]()
+var 시간1 = [String]()
+var 저장용 = [String]()
+var 시간저장용 = [String]()
 var 강수확률 = [String]() // 강수확률
 var 습도 =  [String]() // 습도
 var 시간별강수 = [Int : String]()
@@ -27,7 +31,7 @@ var g_tourAddr = ""
 var g_tourPhone = ""
 var g_tourTitle = ""
 var g_tourType = ""
-
+var 텍스트 = "시간대별 강수확률"
 var searchInCandy : String = "" // 캔디
 
 
