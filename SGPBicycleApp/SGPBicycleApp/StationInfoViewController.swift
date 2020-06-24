@@ -37,14 +37,14 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     
     
     // MARK: - 아래의 플롯변수에 위도 경도 저장되요!
-    var XPoint : Float = 0.0
-    var YPoint : Float = 0.0
+    var XPoint : Float = 0
+    var YPoint : Float = 0
 
     // Mark: - 위도 경도를 통해 동네 예보
     var 동네예보 = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst"
     var 초단기예보 = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst"
     var 동네예보인증키 = "peuzoABFl3ew9WDJeae1ap8n5rlnIok9P1zH0%2FzIXXz2LM%2B8qahwkE1WckPkvD%2FET%2BZ5nN3LltIICJNplE0zvA%3D%3D"
-    var 현재날짜 = "20200623"
+    var 현재날짜 = "20200624"
     var 기준시간 = "0800"
     var category = NSMutableString()
     var fcstValue = NSMutableString()
@@ -82,7 +82,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                
         
         
-        let url : String = 초단기예보 + "?serviceKey=" + 동네예보인증키 + "&numOfRows=100&pageNo=1 &base_date=" + 현재날짜 + "&base_time=" + 기준시간 + "&nx=" + String(Int(XPoint)) + "&ny=" + String(Int(YPoint))
+        let url : String = 동네예보 + "?serviceKey=" + 동네예보인증키 + "&numOfRows=100&pageNo=1 &base_date=" + 현재날짜 + "&base_time=" + 기준시간 + "&nx=" + String(Int(XPoint)) + "&ny=" + String(Int(YPoint))
         
         let SsstrEncoded = self.escape(string: url)
         parser = XMLParser(contentsOf: (URL(string:SsstrEncoded))!)!
@@ -142,12 +142,13 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             print("xpoint찾음" )
             if(string != "\n"){
             Xpos  =  string
+                XPoint = Float(string)!
             }
         }
         else if element.isEqual(to: "YPOINT_WGS"){
               if(string != "\n"){
             Ypos = string
-            
+                YPoint = Float(string)!
             }
         }
         else if element.isEqual(to: "category"){
@@ -167,27 +168,37 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                }
         else if element.isEqual(to: "fcstValue"){
           print("밸류값은?")
+            if(꼼수용>0){
+                   // print(꼼수용)
+                   // print("꼼수번호")
+                      //     print(string)
+                       }
             if(string != "\n"){
                 if (꼼수용 == 1){
                     꼼수용 = 0
+                    print("강수확률 : \(string)")
                   강수확률 = string
                 }
                 if (꼼수용 == 2){
                     습도 = string
+                    
+                    print("습도 : \(string)")
                                    꼼수용 = 0
                                }
                 if (꼼수용 == 3){
                     하늘상태 = string
+                    
+                    print("하늘상태 : \(string)")
                                    꼼수용 = 0
                                }
                 if (꼼수용 == 4){
                     낮최고기온 = string
+                    
+                    print("낮최고기온 : \(string)")
                                    꼼수용 = 0
                                }
                           }
-            if(꼼수용>0){
-                print(string)
-            }
+           
             
             }
       
