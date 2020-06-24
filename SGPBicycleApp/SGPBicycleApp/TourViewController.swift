@@ -20,6 +20,7 @@ class TourViewController: UIViewController, XMLParserDelegate, UITableViewDataSo
     var element = NSString()
     var tourAddr = NSMutableString()
     var tourTitle = NSMutableString()
+    var urlImage = NSMutableString()
     
     
     //전철역 코드로 위도경도 알려주는 xml파싱에 쓰이는 변수들
@@ -55,6 +56,8 @@ class TourViewController: UIViewController, XMLParserDelegate, UITableViewDataSo
             tourAddr = ""
             tourTitle = NSMutableString()
             tourTitle = ""
+            urlImage = NSMutableString()
+            urlImage = ""
         }
     }
     // title과 pubDate을 발견하면 title1과 date에 완성
@@ -64,6 +67,9 @@ class TourViewController: UIViewController, XMLParserDelegate, UITableViewDataSo
         }
         else if element.isEqual(to: "title") {// 제목
             tourTitle.append(string)
+        }
+        else if element.isEqual(to: "firstimage"){
+            urlImage.append(string) // 이미지 url
         }
     }
         
@@ -78,7 +84,9 @@ class TourViewController: UIViewController, XMLParserDelegate, UITableViewDataSo
             if !tourTitle.isEqual(nil){
                 elements.setObject(tourTitle, forKey: "title" as NSCopying)
             }
-            
+            if !urlImage.isEqual(nil){
+                elements.setObject(urlImage, forKey: "firstimage" as NSCopying)
+            }
             posts.add(elements)
         }
     }
@@ -102,6 +110,8 @@ class TourViewController: UIViewController, XMLParserDelegate, UITableViewDataSo
 
         cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "title") as! NSString as String
         cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "addr1") as! NSString as String
+        
+        urlTourImage = (posts.object(at: 0) as AnyObject).value(forKey: "firstimage") as! NSString as String
         
         // Configure the cell...
         return cell
