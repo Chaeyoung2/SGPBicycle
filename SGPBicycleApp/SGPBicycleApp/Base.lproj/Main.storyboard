@@ -194,7 +194,7 @@
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="tourCell"/>
                                         <connections>
-                                            <segue destination="cb9-tC-dIg" kind="show" id="ZbK-57-VMM"/>
+                                            <segue destination="9dL-Ct-dRH" kind="show" id="uve-eq-EdV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -214,7 +214,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRC-Ab-c2O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5280" y="151"/>
+            <point key="canvasLocation" x="5042" y="151"/>
+        </scene>
+        <!--Tour Info View Controller-->
+        <scene sceneID="QbG-Nw-WFg">
+            <objects>
+                <viewController id="9dL-Ct-dRH" customClass="TourInfoViewController" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UwV-wZ-Tpu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KTM-Ba-pmg">
+                                <rect key="frame" x="0.0" y="88" width="414" height="279"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="z28-vo-jx2">
+                                        <rect key="frame" x="188" y="242" width="39" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </pageControl>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Vvr-GH-SAM"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="uEm-Xl-SNT"/>
+                            </scrollView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="주소 : 경기도 웅앵" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-Lf-wSW">
+                                <rect key="frame" x="20" y="375" width="374" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="G1n-sE-qXa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="srY-9H-26P"/>
+                    <connections>
+                        <outlet property="pageControl" destination="z28-vo-jx2" id="jWH-xA-kOe"/>
+                        <outlet property="scrollView" destination="KTM-Ba-pmg" id="arf-ue-Oy4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WKu-3T-30h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5963.768115942029" y="150.66964285714286"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="2Gh-y8-WQ1">
@@ -243,12 +285,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHq-qQ-6fQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5281" y="822"/>
+            <point key="canvasLocation" x="5041" y="822"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AOc-Xa-lKz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nq4-S4-CC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="WaO-qh-lPQ" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="G6a-be-DBi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jJq-KS-cbi">
@@ -259,6 +300,7 @@
                         <segue destination="Oup-ua-8D2" kind="relationship" relationship="rootViewController" id="BkE-jv-V7u"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nq4-S4-CC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4364" y="822"/>
         </scene>

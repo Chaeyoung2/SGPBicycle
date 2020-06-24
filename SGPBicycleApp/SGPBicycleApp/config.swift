@@ -18,6 +18,7 @@ var 하늘상태 =  "" // 하늘상태
 var 낮최고기온 =   "" // 낮최고기온
 var Xpos = ""
 var Ypos = ""
+var urlTourImage = ""
 
 var searchInCandy : String = "" // 캔디
 
