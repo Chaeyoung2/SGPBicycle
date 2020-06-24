@@ -24,6 +24,7 @@ class StationViewController: UIViewController, XMLParserDelegate {
     var stationId = NSMutableString() // 저장 문자열 변수
     var stationName = NSMutableString()
     var routeName = NSMutableString()
+    var urlImage = NSMutableString()
     // image
     var imgOn : UIImage?
 
@@ -60,6 +61,8 @@ class StationViewController: UIViewController, XMLParserDelegate {
             stationName = ""
             routeName = NSMutableString()
             routeName = ""
+            urlImage = NSMutableString()
+            urlImage = ""
         }
     }
 
@@ -71,6 +74,8 @@ class StationViewController: UIViewController, XMLParserDelegate {
             stationName.append(string) // 시도명
         } else if element.isEqual(to: "subwayRouteName"){
             routeName.append(string) // 시군구명
+        } else if element.isEqual(to: "firstimage"){
+            urlImage.append(string) // 시군구명
         }
     }
 
@@ -87,6 +92,7 @@ class StationViewController: UIViewController, XMLParserDelegate {
             if !routeName.isEqual(nil){
                 elements.setObject(routeName, forKey: "subwayRouteName" as NSCopying)
             }
+            
             // elements라는 딕셔너리들을 여러개 갖는 posts
             posts.add(elements)
         }
@@ -95,18 +101,23 @@ class StationViewController: UIViewController, XMLParserDelegate {
     func settingImageLine(){
         if clb == 0{
             imgOn = UIImage(named:"line1.png")
+            FindLine = "1"
         }
         else if clb == 1{
             imgOn = UIImage(named:"line2.png")
+            FindLine = "2"
         }
         else if clb == 2{
             imgOn = UIImage(named:"line3.png")
+            FindLine = "3"
         }
         else if clb == 3{
             imgOn = UIImage(named:"line4.png")
+            FindLine = "4"
         }
         else if clb == 4{
             imgOn = UIImage(named:"line5.png")
+            FindLine = "5"
         }
         imgLine.image = imgOn
     }
