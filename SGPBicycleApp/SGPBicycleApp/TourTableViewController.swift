@@ -19,6 +19,9 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
     var element = NSString()
     var tourAddr = NSMutableString()
     var tourTitle = NSMutableString()
+    var urlImage = NSMutableString()
+    
+    var selectedCellNum = 0
     
     
     //전철역 코드로 위도경도 알려주는 xml파싱에 쓰이는 변수들
@@ -34,7 +37,7 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
     func beginParsing(){
         posts = []
         // 여행 정보
-        let strEncoded = self.escape(string: "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D&mapX=37.5619604852&mapY=37.568477&radius=1000&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTest​")
+        let strEncoded = self.escape(string: "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D&mapX=" + Ypos + "&mapY=" + Xpos + "&radius=1000&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTest​")
         parser = XMLParser(contentsOf: (URL(string:strEncoded))!)!
         parser.delegate = self
         parser.parse()
@@ -53,6 +56,8 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
             tourAddr = ""
             tourTitle = NSMutableString()
             tourTitle = ""
+            urlImage = NSMutableString()
+            urlImage = ""
         }
     }
     // title과 pubDate을 발견하면 title1과 date에 완성
@@ -62,6 +67,9 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
         }
         else if element.isEqual(to: "title") {// 제목
             tourTitle.append(string)
+        }
+        else if element.isEqual(to: "firstimage"){
+            urlImage.append(string) // 이미지 url
         }
     }
         
@@ -75,6 +83,9 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
             }
             if !tourTitle.isEqual(nil){
                 elements.setObject(tourTitle, forKey: "title" as NSCopying)
+            }
+            if !urlImage.isEqual(nil){
+                elements.setObject(urlImage, forKey: "firstimage" as NSCopying)
             }
             
             posts.add(elements)
@@ -90,7 +101,7 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,6 +119,27 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
         // Configure the cell...
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        selectedCellNum = indexPath.row
+        urlTourImage = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "firstimage") as! NSString as String
+        print("selectedCellNum = \(selectedCellNum)")
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "segueTourViewToTourInfo"{
+//             urlTourImage = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "firstimage") as! NSString as String
+//            print("urlTourImage : " + urlTourImage)
+//
+//            print("selectedCellNum in prepare = \(selectedCellNum)")
+//            
+////            if let TourInfoViewController = segue.destination as? ViewController{
+////                TourInfoViewController.urlImage = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "firstimage") as! NSString as String
+////                print((posts.object(at: selectedCellNum) as AnyObject).value(forKey: "firstimage") as! NSString as String)
+////            }
+//        }
+//    }
     
 
     /*

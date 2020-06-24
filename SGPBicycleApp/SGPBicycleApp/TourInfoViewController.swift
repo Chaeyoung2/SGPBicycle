@@ -15,6 +15,7 @@ class TourInfoViewController: UIViewController {
     
     var pageImages : [UIImage] = []
     var pageViews : [UIImageView?] = []
+    var urlImage = NSMutableString()
     
     
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class TourInfoViewController: UIViewController {
     func setImage(){
         // url에서 받아온 사진
         if let url = URL(string: urlTourImage){
+//        if let url = URL(string: urlImage as String){
             if let data = try? Data(contentsOf: url){
                 pageImages.append(UIImage(data:data)!)
             }

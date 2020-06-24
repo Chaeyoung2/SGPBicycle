@@ -101,23 +101,18 @@ class StationViewController: UIViewController, XMLParserDelegate {
     func settingImageLine(){
         if clb == 0{
             imgOn = UIImage(named:"line1.png")
-            FindLine = "1"
         }
         else if clb == 1{
             imgOn = UIImage(named:"line2.png")
-            FindLine = "2"
         }
         else if clb == 2{
             imgOn = UIImage(named:"line3.png")
-            FindLine = "3"
         }
         else if clb == 3{
             imgOn = UIImage(named:"line4.png")
-            FindLine = "4"
         }
         else if clb == 4{
             imgOn = UIImage(named:"line5.png")
-            FindLine = "5"
         }
         imgLine.image = imgOn
     }

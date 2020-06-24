@@ -22,6 +22,8 @@ class TourViewController: UIViewController, XMLParserDelegate, UITableViewDataSo
     var tourTitle = NSMutableString()
     var urlImage = NSMutableString()
     
+    var selectedCellNum = 0
+    
     
     //전철역 코드로 위도경도 알려주는 xml파싱에 쓰이는 변수들
     var XPOINT_WGS = NSMutableString()
@@ -111,10 +113,17 @@ class TourViewController: UIViewController, XMLParserDelegate, UITableViewDataSo
         cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "title") as! NSString as String
         cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "addr1") as! NSString as String
         
-        urlTourImage = (posts.object(at: 0) as AnyObject).value(forKey: "firstimage") as! NSString as String
-        
         // Configure the cell...
         return cell
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "segueTourViewToTourInfo",
+            let _ = segue.destination as? TourInfoViewController{
+            print(selectedCellNum)
+            urlTourImage = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "firstimage") as! NSString as String
+        }
     }
     
 
