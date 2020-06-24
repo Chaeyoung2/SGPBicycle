@@ -90,9 +90,6 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         parser = XMLParser(contentsOf: (URL(string:SsstrEncoded))!)!
                    parser.delegate = self
                    parser.parse()
-        print("파싱된 에이피아이주소는: ")
-        print(SsstrEncoded)
-        print(url)
         
     }
    
@@ -110,9 +107,9 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             routeName = NSMutableString()
             routeName = ""
             XPOINT_WGS  = NSMutableString()
-                         XPOINT_WGS  = ""
-                         YPOINT_WGS = NSMutableString()
-                         YPOINT_WGS  = ""
+            XPOINT_WGS  = ""
+            YPOINT_WGS = NSMutableString()
+            YPOINT_WGS  = ""
 
             category = NSMutableString()
             fcstValue = NSMutableString()
@@ -138,29 +135,29 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCharacters string: String){
         if element.isEqual(to: "subwayStationId"){
             stationId.append(string) // 기관명
-        } else if element.isEqual(to: "subwayStationName"){
+        }
+         if element.isEqual(to: "subwayStationName"){
             stationName.append(string) // 시도명
-        } else if element.isEqual(to: "subwayRouteName"){
+        }
+         if element.isEqual(to: "subwayRouteName"){
             routeName.append(string) // 시군구명
         }
-        else if element.isEqual(to: "XPOINT_WGS"){
-            print("xpoint찾음" )
+         if element.isEqual(to: "XPOINT_WGS"){
             if(string != "\n"){
             Xpos  =  string
-                XPoint = Float(string)!
+            XPoint = Float(string)!
             }
         }
-        else if element.isEqual(to: "YPOINT_WGS"){
+         if element.isEqual(to: "YPOINT_WGS"){
               if(string != "\n"){
             Ypos = string
-                YPoint = Float(string)!
+            YPoint = Float(string)!
             }
         }
-        else if element.isEqual(to: "fsctTime"){
+         if element.isEqual(to: "fsctTime"){
             temptime = Int(string)!
         }
         else if element.isEqual(to: "category"){
-            print("카테고리찾음")
            if(string == "POP"){
                꼼수용 = 1
             }
@@ -175,7 +172,6 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             }
                }
         else if element.isEqual(to: "fcstValue"){
-          print("밸류값은?")
             if(꼼수용>0){
                    // print(꼼수용)
                    // print("꼼수번호")
@@ -188,25 +184,21 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                         하늘상태 = "2"
                     }
                     시간별강수.updateValue(string, forKey: temptime)
-                    print("강수확률 : \(string)")
                     //강수확률.append(string)
                 }
                 if (꼼수용 == 2){
                     //습도.append(string)
                     시간별습도.updateValue(string, forKey: temptime)
-                    print("습도 : \(string)")
                                    꼼수용 = 0
                                }
                 if (꼼수용 == 3){
                     하늘상태 = string
                     
-                    print("하늘상태 : \(string)")
                                    꼼수용 = 0
                                }
                 if (꼼수용 == 4){
                     낮최고기온 = string
                     
-                    print("낮최고기온 : \(string)")
                                    꼼수용 = 0
                                }
                           }
@@ -252,23 +244,18 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     func settingImageLine(){
         if clb == 0{
             imgOn = UIImage(named:"line1.png")
-            FindLine = "1"
         }
         else if clb == 1{
             imgOn = UIImage(named:"line2.png")
-            FindLine = "2"
         }
         else if clb == 2{
             imgOn = UIImage(named:"line3.png")
-            FindLine = "3"
         }
         else if clb == 3{
             imgOn = UIImage(named:"line4.png")
-            FindLine = "4"
         }
         else if clb == 4{
             imgOn = UIImage(named:"line5.png")
-            FindLine = "5"
         }
         imgLine.image = imgOn
     }

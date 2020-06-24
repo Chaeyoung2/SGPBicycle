@@ -12,15 +12,14 @@ class TourInfoViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var textView: UITextView!
     
     var pageImages : [UIImage] = []
     var pageViews : [UIImageView?] = []
-    var urlImage = NSMutableString()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setImage()
+        setTourInfoTextView()
         // Do any additional setup after loading the view.
     }
     
@@ -103,6 +102,10 @@ class TourInfoViewController: UIViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         loadVisiblePages()
+    }
+    
+    func setTourInfoTextView(){
+        self.textView.text = "주소 : " + g_tourAddr + "\n전화번호 : " + g_tourPhone
     }
 
     /*

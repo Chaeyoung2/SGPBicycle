@@ -19,6 +19,7 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
     var element = NSString()
     var tourAddr = NSMutableString()
     var tourTitle = NSMutableString()
+    var tourTel = NSMutableString()
     var urlImage = NSMutableString()
     
     var selectedCellNum = 0
@@ -58,6 +59,8 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
             tourTitle = ""
             urlImage = NSMutableString()
             urlImage = ""
+            tourTel = NSMutableString()
+            tourTel = ""
         }
     }
     // title과 pubDate을 발견하면 title1과 date에 완성
@@ -70,6 +73,9 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
         }
         else if element.isEqual(to: "firstimage"){
             urlImage.append(string) // 이미지 url
+        }
+        else if element.isEqual(to: "tel"){
+            tourTel.append(string) // tel
         }
     }
         
@@ -86,6 +92,9 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
             }
             if !urlImage.isEqual(nil){
                 elements.setObject(urlImage, forKey: "firstimage" as NSCopying)
+            }
+            if !urlImage.isEqual(nil){
+                elements.setObject(tourTel, forKey: "tel" as NSCopying)
             }
             
             posts.add(elements)
@@ -124,12 +133,22 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
 
         selectedCellNum = indexPath.row
         urlTourImage = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "firstimage") as! NSString as String
-        print("selectedCellNum = \(selectedCellNum)")
+        g_tourAddr = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "addr1") as! NSString as String
+        g_tourPhone = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "tel") as! NSString as String
+        g_tourTitle = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "title") as! NSString as String
+//        print("selectedCellNum = \(selectedCellNum)")
+//        print("g_tourTitle = " + g_tourTitle)
+//        print("urlTourImage = " + urlTourImage)
+//        print("g_tourAddr = " + g_tourAddr)
+//        print("g_tourPhone = " + g_tourPhone)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "segueTourViewToTourInfo"{
-//             urlTourImage = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "firstimage") as! NSString as String
+//            if let tourInfoViewController = segue.destination as? TourInfoViewController{
+//                tourInfoViewController.addr = (posts.object(at: selectedCellNum) as AnyObject).value(forKey: "addr1") as! NSString as String
+//            }
+            
 //            print("urlTourImage : " + urlTourImage)
 //
 //            print("selectedCellNum in prepare = \(selectedCellNum)")
@@ -139,7 +158,7 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
 ////                print((posts.object(at: selectedCellNum) as AnyObject).value(forKey: "firstimage") as! NSString as String)
 ////            }
 //        }
-//    }
+    }
     
 
     /*

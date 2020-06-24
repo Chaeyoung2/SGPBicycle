@@ -240,6 +240,7 @@
                     <connections>
                         <outlet property="pageControl" destination="z28-vo-jx2" id="jWH-xA-kOe"/>
                         <outlet property="scrollView" destination="KTM-Ba-pmg" id="arf-ue-Oy4"/>
+                        <outlet property="textView" destination="9Ea-Lf-wSW" id="CjS-XN-hb2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKu-3T-30h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
