@@ -15,6 +15,26 @@
 		A157F45B24A371E8007B7313 /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F45A24A371E8007B7313 /* Tour.swift */; };
 		A157F45D24A3744E007B7313 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F45C24A3744E007B7313 /* VCMapView.swift */; };
 		A157F45F24A378B7007B7313 /* TourViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F45E24A378B7007B7313 /* TourViews.swift */; };
+		A157F46324A383AE007B7313 /* ExplodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F46224A383AE007B7313 /* ExplodeView.swift */; };
+		A157F47B24A392F9007B7313 /* particle.png in Resources */ = {isa = PBXBuildFile; fileRef = A157F47A24A392F9007B7313 /* particle.png */; };
+		A157F48724A39356007B7313 /* ViewController_Wheather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F47C24A39355007B7313 /* ViewController_Wheather.swift */; };
+		A157F48824A39356007B7313 /* WheatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F47D24A39355007B7313 /* WheatherViewController.swift */; };
+		A157F48924A39356007B7313 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F47E24A39355007B7313 /* MapView.swift */; };
+		A157F48A24A39356007B7313 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F47F24A39355007B7313 /* ContentView.swift */; };
+		A157F48B24A39356007B7313 /* ViewController_SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F48024A39355007B7313 /* ViewController_SwiftUI.swift */; };
+		A157F48D24A39356007B7313 /* StationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F48224A39355007B7313 /* StationHeader.swift */; };
+		A157F48F24A39356007B7313 /* StationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F48424A39355007B7313 /* StationInfo.swift */; };
+		A157F49024A39356007B7313 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F48524A39355007B7313 /* DoubleExtension.swift */; };
+		A157F49724A394AB007B7313 /* PrecipitationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F49624A394AB007B7313 /* PrecipitationTab.swift */; };
+		A157F49924A394C1007B7313 /* SnowfallTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F49824A394C1007B7313 /* SnowfallTab.swift */; };
+		A157F49B24A394D4007B7313 /* TemperatureTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F49A24A394D4007B7313 /* TemperatureTab.swift */; };
+		A157F49D24A394EB007B7313 /* WeatherStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F49C24A394EB007B7313 /* WeatherStation.swift */; };
+		A157F49F24A394FC007B7313 /* DayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F49E24A394FC007B7313 /* DayInfo.swift */; };
+		A157F4A124A39509007B7313 /* WeatherInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F4A024A39509007B7313 /* WeatherInformation.swift */; };
+		A157F4A324A39522007B7313 /* TemperatureChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F4A224A39522007B7313 /* TemperatureChart.swift */; };
+		A157F4A524A39530007B7313 /* PrecipitationChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F4A424A39530007B7313 /* PrecipitationChart.swift */; };
+		A157F4A724A39540007B7313 /* SnowfallChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157F4A624A39540007B7313 /* SnowfallChart.swift */; };
+		A157F4A924A398E3007B7313 /* weather-data.csv in Resources */ = {isa = PBXBuildFile; fileRef = A157F4A824A398E3007B7313 /* weather-data.csv */; };
 		A17627EA2491F576001FC1EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627E92491F576001FC1EC /* SceneDelegate.swift */; };
 		A17627EC2491F576001FC1EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17627EB2491F576001FC1EC /* ViewController.swift */; };
 		A17627EF2491F576001FC1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17627ED2491F576001FC1EC /* Main.storyboard */; };
@@ -40,7 +60,6 @@
 		A17DE13C2492536300B85E20 /* namesearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE13B2492536300B85E20 /* namesearchViewController.swift */; };
 		A17DE13E2492590500B85E20 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE13D2492590500B85E20 /* config.swift */; };
 		A1CDA71224928DD600E3E23F /* img_subway.png in Resources */ = {isa = PBXBuildFile; fileRef = A1CDA71124928DD600E3E23F /* img_subway.png */; };
-		A1F7FF7324A347170013E43C /* WheatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7FF7224A347170013E43C /* WheatherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +88,26 @@
 		A157F45A24A371E8007B7313 /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		A157F45C24A3744E007B7313 /* VCMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		A157F45E24A378B7007B7313 /* TourViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViews.swift; sourceTree = "<group>"; };
+		A157F46224A383AE007B7313 /* ExplodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplodeView.swift; sourceTree = "<group>"; };
+		A157F47A24A392F9007B7313 /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle.png; sourceTree = "<group>"; };
+		A157F47C24A39355007B7313 /* ViewController_Wheather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController_Wheather.swift; sourceTree = "<group>"; };
+		A157F47D24A39355007B7313 /* WheatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheatherViewController.swift; sourceTree = "<group>"; };
+		A157F47E24A39355007B7313 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		A157F47F24A39355007B7313 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A157F48024A39355007B7313 /* ViewController_SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController_SwiftUI.swift; sourceTree = "<group>"; };
+		A157F48224A39355007B7313 /* StationHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationHeader.swift; sourceTree = "<group>"; };
+		A157F48424A39355007B7313 /* StationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationInfo.swift; sourceTree = "<group>"; };
+		A157F48524A39355007B7313 /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		A157F49624A394AB007B7313 /* PrecipitationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecipitationTab.swift; sourceTree = "<group>"; };
+		A157F49824A394C1007B7313 /* SnowfallTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowfallTab.swift; sourceTree = "<group>"; };
+		A157F49A24A394D4007B7313 /* TemperatureTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTab.swift; sourceTree = "<group>"; };
+		A157F49C24A394EB007B7313 /* WeatherStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStation.swift; sourceTree = "<group>"; };
+		A157F49E24A394FC007B7313 /* DayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInfo.swift; sourceTree = "<group>"; };
+		A157F4A024A39509007B7313 /* WeatherInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInformation.swift; sourceTree = "<group>"; };
+		A157F4A224A39522007B7313 /* TemperatureChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureChart.swift; sourceTree = "<group>"; };
+		A157F4A424A39530007B7313 /* PrecipitationChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecipitationChart.swift; sourceTree = "<group>"; };
+		A157F4A624A39540007B7313 /* SnowfallChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowfallChart.swift; sourceTree = "<group>"; };
+		A157F4A824A398E3007B7313 /* weather-data.csv */ = {isa = PBXFileReference; lastKnownFileType = file; name = "weather-data.csv"; path = "SGPBicycleApp/Models/weather-data.csv"; sourceTree = SOURCE_ROOT; };
 		A17627E42491F576001FC1EC /* SGPBicycleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGPBicycleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17627E92491F576001FC1EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A17627EB2491F576001FC1EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +139,6 @@
 		A17DE13B2492536300B85E20 /* namesearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = namesearchViewController.swift; sourceTree = "<group>"; };
 		A17DE13D2492590500B85E20 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		A1CDA71124928DD600E3E23F /* img_subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_subway.png; sourceTree = "<group>"; };
-		A1F7FF7224A347170013E43C /* WheatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,13 +166,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A157F49324A3948C007B7313 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				A157F4A224A39522007B7313 /* TemperatureChart.swift */,
+				A157F4A424A39530007B7313 /* PrecipitationChart.swift */,
+				A157F4A624A39540007B7313 /* SnowfallChart.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		A157F49424A39494007B7313 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A157F4A824A398E3007B7313 /* weather-data.csv */,
+				A157F49C24A394EB007B7313 /* WeatherStation.swift */,
+				A157F49E24A394FC007B7313 /* DayInfo.swift */,
+				A157F4A024A39509007B7313 /* WeatherInformation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A157F49524A3949B007B7313 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				A157F49624A394AB007B7313 /* PrecipitationTab.swift */,
+				A157F49824A394C1007B7313 /* SnowfallTab.swift */,
+				A157F49A24A394D4007B7313 /* TemperatureTab.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		A17627DB2491F576001FC1EC = {
 			isa = PBXGroup;
 			children = (
+				A17627E52491F576001FC1EC /* Products */,
 				A17627E62491F576001FC1EC /* SGPBicycleApp */,
 				A17627FD2491F577001FC1EC /* SGPBicycleAppTests */,
 				A17628082491F577001FC1EC /* SGPBicycleAppUITests */,
-				A17627E52491F576001FC1EC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +220,18 @@
 		A17627E62491F576001FC1EC /* SGPBicycleApp */ = {
 			isa = PBXGroup;
 			children = (
+				A157F49524A3949B007B7313 /* Tabs */,
+				A157F49424A39494007B7313 /* Models */,
+				A157F49324A3948C007B7313 /* Charts */,
+				A157F47F24A39355007B7313 /* ContentView.swift */,
+				A157F48524A39355007B7313 /* DoubleExtension.swift */,
+				A157F47E24A39355007B7313 /* MapView.swift */,
+				A157F48224A39355007B7313 /* StationHeader.swift */,
+				A157F48424A39355007B7313 /* StationInfo.swift */,
+				A157F48024A39355007B7313 /* ViewController_SwiftUI.swift */,
+				A157F47C24A39355007B7313 /* ViewController_Wheather.swift */,
+				A157F47D24A39355007B7313 /* WheatherViewController.swift */,
+				A157F47A24A392F9007B7313 /* particle.png */,
 				A157F45C24A3744E007B7313 /* VCMapView.swift */,
 				A100516324A131FE007AEBCC /* TourTableViewController.swift */,
 				A1CDA71124928DD600E3E23F /* img_subway.png */,
@@ -181,9 +262,9 @@
 				A100516524A13BAF007AEBCC /* StationViewController.swift */,
 				A157F44A24A28667007B7313 /* TourViewController.swift */,
 				A157F45824A337C2007B7313 /* TourInfoViewController.swift */,
-				A1F7FF7224A347170013E43C /* WheatherViewController.swift */,
 				A157F45A24A371E8007B7313 /* Tour.swift */,
 				A157F45E24A378B7007B7313 /* TourViews.swift */,
+				A157F46224A383AE007B7313 /* ExplodeView.swift */,
 			);
 			path = SGPBicycleApp;
 			sourceTree = "<group>";
@@ -315,12 +396,14 @@
 				A17627F42491F577001FC1EC /* LaunchScreen.storyboard in Resources */,
 				A176283F249246E2001FC1EC /* line8.png in Resources */,
 				A176283A249246E2001FC1EC /* line5.png in Resources */,
+				A157F4A924A398E3007B7313 /* weather-data.csv in Resources */,
 				A1762841249246E2001FC1EC /* line6.png in Resources */,
 				A1762842249246E2001FC1EC /* line1.png in Resources */,
 				A17627F12491F577001FC1EC /* Assets.xcassets in Resources */,
 				A1762840249246E2001FC1EC /* line3.png in Resources */,
 				A176283B249246E2001FC1EC /* line9.png in Resources */,
 				A17627EF2491F576001FC1EC /* Main.storyboard in Resources */,
+				A157F47B24A392F9007B7313 /* particle.png in Resources */,
 				A176283E249246E2001FC1EC /* line2.png in Resources */,
 				A176283C249246E2001FC1EC /* line7.png in Resources */,
 			);
@@ -347,25 +430,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A157F48724A39356007B7313 /* ViewController_Wheather.swift in Sources */,
 				A157F45D24A3744E007B7313 /* VCMapView.swift in Sources */,
+				A157F48A24A39356007B7313 /* ContentView.swift in Sources */,
+				A157F48824A39356007B7313 /* WheatherViewController.swift in Sources */,
+				A157F4A124A39509007B7313 /* WeatherInformation.swift in Sources */,
 				A17628542492624A001FC1EC /* AppDelegate.swift in Sources */,
+				A157F4A724A39540007B7313 /* SnowfallChart.swift in Sources */,
 				A157F45924A337C2007B7313 /* TourInfoViewController.swift in Sources */,
+				A157F49B24A394D4007B7313 /* TemperatureTab.swift in Sources */,
 				A100516624A13BAF007AEBCC /* StationViewController.swift in Sources */,
+				A157F49924A394C1007B7313 /* SnowfallTab.swift in Sources */,
+				A157F49724A394AB007B7313 /* PrecipitationTab.swift in Sources */,
 				A100516424A131FE007AEBCC /* TourTableViewController.swift in Sources */,
 				A176284F24925FD5001FC1EC /* MasterViewController.swift in Sources */,
+				A157F4A324A39522007B7313 /* TemperatureChart.swift in Sources */,
 				A176285024925FD5001FC1EC /* SearchFooter.swift in Sources */,
+				A157F48924A39356007B7313 /* MapView.swift in Sources */,
 				A176284E24925FD5001FC1EC /* DetailViewController.swift in Sources */,
+				A157F49024A39356007B7313 /* DoubleExtension.swift in Sources */,
 				A157F44B24A28667007B7313 /* TourViewController.swift in Sources */,
+				A157F48B24A39356007B7313 /* ViewController_SwiftUI.swift in Sources */,
+				A157F49F24A394FC007B7313 /* DayInfo.swift in Sources */,
+				A157F48F24A39356007B7313 /* StationInfo.swift in Sources */,
 				A17627EC2491F576001FC1EC /* ViewController.swift in Sources */,
 				A17DE13C2492536300B85E20 /* namesearchViewController.swift in Sources */,
 				A176284824925CB1001FC1EC /* Station.swift in Sources */,
 				A176281C24922E05001FC1EC /* StationInfoViewController.swift in Sources */,
+				A157F4A524A39530007B7313 /* PrecipitationChart.swift in Sources */,
 				A17DE13E2492590500B85E20 /* config.swift in Sources */,
+				A157F49D24A394EB007B7313 /* WeatherStation.swift in Sources */,
 				A157F45B24A371E8007B7313 /* Tour.swift in Sources */,
 				A12C654424922A1300C3FFAD /* LineSearchViewController.swift in Sources */,
-				A1F7FF7324A347170013E43C /* WheatherViewController.swift in Sources */,
+				A157F46324A383AE007B7313 /* ExplodeView.swift in Sources */,
 				A17627EA2491F576001FC1EC /* SceneDelegate.swift in Sources */,
 				A157F45F24A378B7007B7313 /* TourViews.swift in Sources */,
+				A157F48D24A39356007B7313 /* StationHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

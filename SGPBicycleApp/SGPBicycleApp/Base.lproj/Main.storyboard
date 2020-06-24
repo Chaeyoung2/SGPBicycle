@@ -297,6 +297,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="강수확률차트보기"/>
+                                <connections>
+                                    <segue destination="H6T-Dl-gTk" kind="show" id="tmK-4f-ICm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -652,6 +655,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uh-tV-9BG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4364" y="151"/>
+        </scene>
+        <!--View Controller Wheather-->
+        <scene sceneID="GZw-Cs-63x">
+            <objects>
+                <viewController id="H6T-Dl-gTk" customClass="ViewController_Wheather" customModule="SGPBicycleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="woa-a1-U1K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xMW-qC-2y7">
+                                <rect key="frame" x="0.0" y="357" width="414" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="H6T-Dl-gTk" id="mMn-Le-EG8"/>
+                                    <outlet property="delegate" destination="H6T-Dl-gTk" id="zO8-Zu-ynf"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xMW-qC-2y7" firstAttribute="bottom" secondItem="OGY-tU-fdk" secondAttribute="bottom" id="LSn-Eg-wgG"/>
+                            <constraint firstItem="xMW-qC-2y7" firstAttribute="centerX" secondItem="woa-a1-U1K" secondAttribute="centerX" id="siV-bS-UUf"/>
+                            <constraint firstItem="xMW-qC-2y7" firstAttribute="leading" secondItem="OGY-tU-fdk" secondAttribute="leading" id="u1v-4d-cd9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OGY-tU-fdk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NVB-9L-DsC"/>
+                    <connections>
+                        <outlet property="pickerView" destination="xMW-qC-2y7" id="ADi-go-tIU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="49t-qA-f9H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6275" y="822"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

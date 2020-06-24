@@ -97,7 +97,7 @@ class TourViewController: UIViewController, XMLParserDelegate, UITableViewDataSo
         let allowedCharacters = string.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn:"#").inverted) ?? ""
         return allowedCharacters
     }
-
+    
     // MARK: - Table view data source
 
 

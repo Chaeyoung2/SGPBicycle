@@ -22,6 +22,7 @@ var 낮최고기온 =   "" // 낮최고기온
 var Xpos = ""
 var Ypos = ""
 var urlTourImage = ""
+var 시간별 : NSMutableArray = []
 var g_tourAddr = ""
 var g_tourPhone = ""
 var g_tourTitle = ""

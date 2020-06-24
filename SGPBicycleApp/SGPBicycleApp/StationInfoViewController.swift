@@ -23,6 +23,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     // XMl데이터 파싱 위해 클래스에서 다음 변수를 선언
     var parser = XMLParser() // xml 파일을 다운로드 및 파싱하는 오브젝트
     var posts = NSMutableArray() // feed 데이터를 저장하는 mutable array
+    var tempelements = NSMutableDictionary()
     var elements = NSMutableDictionary() // title과 date 같은 feed 데이터를 저장하는 mutable dictionary
     var element = NSString()
     var stationId = NSMutableString() // 저장 문자열 변수
@@ -56,15 +57,16 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
     var 꼼수용 = 0
     var fcstTime = NSMutableString()
     var temptime = 0
+    var tempstring = ""
     // MARK: - 해당 화면이 불려질때 불려지는 함수들
     override func viewDidLoad() {
         super.viewDidLoad()
         beginParsing()
         settingImageLine()
         settingInformation()
-    
+        explodeParticle()
         
-        print("xpos \(Xpos) ypos \(Ypos)")
+        // print("xpos \(Xpos) ypos \(Ypos)")
         // Do any additional setup after loading the view.
     }
 
@@ -171,40 +173,49 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
                꼼수용 = 4
             }
                }
-        else if element.isEqual(to: "fcstValue"){
-            if(꼼수용>0){
-                   // print(꼼수용)
-                   // print("꼼수번호")
-                      //     print(string)
-                       }
-            if(string != "\n"){
-                if (꼼수용 == 1){
-                    꼼수용 = 0
-                    if(Int(string)!>90){
-                        하늘상태 = "2"
-                    }
-                    시간별강수.updateValue(string, forKey: temptime)
-                    //강수확률.append(string)
-                }
-                if (꼼수용 == 2){
-                    //습도.append(string)
-                    시간별습도.updateValue(string, forKey: temptime)
-                                   꼼수용 = 0
-                               }
-                if (꼼수용 == 3){
-                    하늘상태 = string
-                    
-                                   꼼수용 = 0
-                               }
-                if (꼼수용 == 4){
-                    낮최고기온 = string
-                    
-                                   꼼수용 = 0
-                               }
+          else if element.isEqual(to: "fcstValue"){
+          
+                  if(꼼수용>0){
+                         // print(꼼수용)
+                         // print("꼼수번호")
+                            //     print(string)
+                             }
+                  if(string != "\n"){
+                      if (꼼수용 == 1){
+                          꼼수용 = 0
+                          if(Int(string)!>90){
+                              하늘상태 = "2"
                           }
-           
-            
-            }
+                          시간별강수.updateValue(string, forKey: temptime)
+                          
+                          tempelements.setObject(string, forKey: "POP" as NSCopying)
+                          시간별.add(tempelements)
+                          tempelements.setObject(tempstring, forKey: "fcstTime" as NSCopying)
+                          시간별.add(tempelements)
+                          print("시간별 갯수 : \(시간별.count)")
+                          print("시간: \(tempstring) 강수확률 : \(string) " )
+                          //강수확률.append(string)
+                      }
+                      if (꼼수용 == 2){
+                          //습도.append(string)
+                          시간별습도.updateValue(string, forKey: temptime)
+                      
+                                         꼼수용 = 0
+                                     }
+                      if (꼼수용 == 3){
+                          하늘상태 = string
+                          
+                                         꼼수용 = 0
+                                     }
+                      if (꼼수용 == 4){
+                          낮최고기온 = string
+                          
+                                         꼼수용 = 0
+                                     }
+                                }
+                 
+                  
+                  }
       
         
         
@@ -239,6 +250,13 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
             posts.add(elements)
         }
     }
+    
+    func explodeParticle(){
+        let explore = ExplodeView(frame: CGRect(x: self.view.center.x - 30, y: self.view.center.y - 200, width: 100, height: 100))
+        self.view.addSubview(explore)
+        self.view.sendSubviewToBack(explore)
+    }
+
    
     // MARK: -
     func settingImageLine(){
@@ -270,6 +288,7 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         let allowedCharacters = string.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn:"#").inverted) ?? ""
         return allowedCharacters
     }
+    
     
     /*
     // MARK: - Navigation
