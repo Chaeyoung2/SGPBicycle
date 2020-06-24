@@ -141,12 +141,12 @@ class StationInfoViewController: UIViewController, XMLParserDelegate {
         else if element.isEqual(to: "XPOINT_WGS"){
             print("xpoint찾음" )
             if(string != "\n"){
-            Xpos  =  Float(string)!
+            Xpos  =  string
             }
         }
         else if element.isEqual(to: "YPOINT_WGS"){
               if(string != "\n"){
-            Ypos = Float(string)!
+            Ypos = string
             
             }
         }

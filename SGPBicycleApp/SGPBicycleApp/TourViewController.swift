@@ -1,15 +1,16 @@
 //
-//  TourTableViewController.swift
+//  TourViewController.swift
 //  SGPBicycleApp
 //
-//  Created by kpugame on 2020/06/23.
+//  Created by kpugame on 2020/06/24.
 //  Copyright © 2020 SONCHAEYOUNG. All rights reserved.
 //
 
 import UIKit
 
-class TourTableViewController: UITableViewController, XMLParserDelegate  {
+class TourViewController: UIViewController, XMLParserDelegate, UITableViewDataSource  {
 
+    
     @IBOutlet var tbData: UITableView! // table view 데이터
     
     // xml 데이터 파싱 위한 변수
@@ -34,7 +35,8 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
     func beginParsing(){
         posts = []
         // 여행 정보
-        let strEncoded = self.escape(string: "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D&mapX=37.5619604852&mapY=37.568477&radius=1000&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTest​")
+//        let strEncoded = self.escape(string: "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D&mapX=126.882339&mapY=37.4810715&radius=1000&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTest​")
+                let strEncoded = self.escape(string: "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=eVQI4T2pv9%2F5bhGQP%2FxFgKhQDajSaNh9NvFwrxkHJG2zyQlbP1Ai8mcgkwzwJpRWfsBqh8zQPTptdp0NH3b0IA%3D%3D&mapX=" + Ypos + "&mapY=" + Xpos + "&radius=1000&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTest​")
         parser = XMLParser(contentsOf: (URL(string:strEncoded))!)!
         parser.delegate = self
         parser.parse()
@@ -88,18 +90,14 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return posts.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tourCell", for: indexPath)
 
         cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "title") as! NSString as String
@@ -109,41 +107,6 @@ class TourTableViewController: UITableViewController, XMLParserDelegate  {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

@@ -16,8 +16,8 @@ var 강수확률 = "" // 강수확률
 var 습도 =  "" // 습도
 var 하늘상태 =  "" // 하늘상태
 var 낮최고기온 =   "" // 낮최고기온
-var Xpos : Float = 0
-var Ypos : Float = 0
+var Xpos = ""
+var Ypos = ""
 
 var searchInCandy : String = "" // 캔디
 
