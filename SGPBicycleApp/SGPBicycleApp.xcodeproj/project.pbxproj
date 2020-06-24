@@ -37,6 +37,7 @@
 		A17DE13C2492536300B85E20 /* namesearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE13B2492536300B85E20 /* namesearchViewController.swift */; };
 		A17DE13E2492590500B85E20 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE13D2492590500B85E20 /* config.swift */; };
 		A1CDA71224928DD600E3E23F /* img_subway.png in Resources */ = {isa = PBXBuildFile; fileRef = A1CDA71124928DD600E3E23F /* img_subway.png */; };
+		A1F7FF7324A347170013E43C /* WheatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7FF7224A347170013E43C /* WheatherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		A17DE13B2492536300B85E20 /* namesearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = namesearchViewController.swift; sourceTree = "<group>"; };
 		A17DE13D2492590500B85E20 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		A1CDA71124928DD600E3E23F /* img_subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_subway.png; sourceTree = "<group>"; };
+		A1F7FF7224A347170013E43C /* WheatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				A100516524A13BAF007AEBCC /* StationViewController.swift */,
 				A157F44A24A28667007B7313 /* TourViewController.swift */,
 				A157F45824A337C2007B7313 /* TourInfoViewController.swift */,
+				A1F7FF7224A347170013E43C /* WheatherViewController.swift */,
 			);
 			path = SGPBicycleApp;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				A176281C24922E05001FC1EC /* StationInfoViewController.swift in Sources */,
 				A17DE13E2492590500B85E20 /* config.swift in Sources */,
 				A12C654424922A1300C3FFAD /* LineSearchViewController.swift in Sources */,
+				A1F7FF7324A347170013E43C /* WheatherViewController.swift in Sources */,
 				A17627EA2491F576001FC1EC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
